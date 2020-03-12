@@ -6,3 +6,11 @@
 2. [股票各种指标](./article/2.股票各种指标.md)
 3. [K线基础知识](https://htmlpreview.github.io/?https://github.com/AdvancingStone/stock-learning/blob/master/html/3.K%E7%BA%BF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html)
 4. [筹码理论](./article/4.筹码理论.md)
+5. 江恩理论
+6. 散户亏钱的原因
+7. 庄家分析
+8. 趋势投资
+9. 股市常胜主升浪战法
+10. 职业股民规划
+11. 波浪理论
+12. 量价理论及实盘解析
