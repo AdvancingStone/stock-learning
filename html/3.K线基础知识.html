@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>3.K线基础知识</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n3909"><a class="md-toc-inner" href="#一k线产生的历史背景">一.K线产生的历史背景</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3910"><a class="md-toc-inner" href="#1k线是什么">1.K线是什么？</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3912"><a class="md-toc-inner" href="#2为什么要学习k线">2.为什么要学习K线？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n3918"><a class="md-toc-inner" href="#二k线的基础知识">二.K线的基础知识</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3920"><a class="md-toc-inner" href="#1k线的画法">1.K线的画法</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3925"><a class="md-toc-inner" href="#2k线的主要形状">2.K线的主要形状</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3933"><a class="md-toc-inner" href="#3单根k线的含义">3.单根K线的含义</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n3985"><a class="md-toc-inner" href="#4k线总结">4.K线总结</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4068"><a class="md-toc-inner" href="#5请注意">5.请注意</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n4076"><a class="md-toc-inner" href="#三k线组合的实战用法">三.K线组合的实战用法</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4080"><a class="md-toc-inner" href="#一底部形态">一、底部形态</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4085"><a class="md-toc-inner" href="#1早晨之星img-srcpictureimage-20200312104358936png-altimage-20200312104358936-alignmiddle-stylezoom-50-">1、早晨之星</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4101"><a class="md-toc-inner" href="#2刺透底部img-srcpictureimage-20200312105214435png-altimage-20200312105214435-stylezoom67-">2、“刺透底部”</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4117"><a class="md-toc-inner" href="#3底部的穿头破脚img-srcpictureimage-20200312105620690png-altimage-20200312105620690-stylezoom67-">3、底部的“穿头破脚”</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4137"><a class="md-toc-inner" href="#4t字型锤型底部img-srcpictureimage-20200312105856250png-altimage-20200312105856250-stylezoom67-">4、T字型(锤型)底部</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4155"><a class="md-toc-inner" href="#5倒t字型倒锤型）底部img-srcpictureimage-20200312110157660png-altimage-20200312110157660-stylezoom67-">5、倒T字型（倒锤型）底部</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4172"><a class="md-toc-inner" href="#二顶部形态">二、顶部形态</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4176"><a class="md-toc-inner" href="#1黄昏之星">1、黄昏之星 </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4200"><a class="md-toc-inner" href="#2乌云盖顶img-srcpictureimage-20200312110956190png-altimage-20200312110956190-stylezoom67-">2、乌云盖顶</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4217"><a class="md-toc-inner" href="#3顶部的穿头破脚img-srcpictureimage-20200312111204804png-altimage-20200312111204804-stylezoom67-">3、顶部的“穿头破脚”</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4236"><a class="md-toc-inner" href="#4顶部射击之星img-srcpictureimage-20200312111425526png-altimage-20200312111425526-stylezoom67-">4、顶部“射击之星”</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n4259"><a class="md-toc-inner" href="#5顶部吊颈形态img-srcpictureimage-20200312111645783png-altimage-20200312111645783-stylezoom67-">5、顶部“吊颈”形态</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4280"><a class="md-toc-inner" href="#三应用k线组合应注意的问题">三、应用K线组合应注意的问题：</a></span></p></div><p>&nbsp;</p><h4><a name="一k线产生的历史背景" class="md-header-anchor"></a><span>一.K线产生的历史背景</span></h4><h5><a name="1k线是什么" class="md-header-anchor"></a><span>1.K线是什么？</span></h5><p><span>K线又被称为蜡烛线，也叫阴阳烛，据说起源于十八世纪日本德川幕府时代的米市，当时的米商为了直观的记录米价的变动情况，编制出这种图线，后来被技术派人士引用到证券市场，成为股票技术分析的一种理论.而现代K线是以状图、杆状图、条型图、锚型图演进而成，其最大的特点就是客观的把握股价起伏，对行情动态一目了然。</span></p><h5><a name="2为什么要学习k线" class="md-header-anchor"></a><span>2.为什么要学习K线？</span></h5><p><span>K线是提供我们买进和卖出的讯号以及市场反转的时机。K线图有如一副战略地图具有震撼的力量，股价的涨跌起落勾画出人心的趋向，其中出现的每一个讯号都是扣人心弦的不仅展现了人们彷徨、迷茫及不安的心情，同时也体现了未来股价的走向。</span></p><p><span>K线让我们可以依据一根或数根的线形来判断市场的心里和买卖双方供需关系以及力量的强弱，并且反映了目前股价扭转的讯号，在股票市场中从事买卖交易，应了解K线实际所提示的意义与用法。</span></p><p><span>股价快速变动的市场，不论以任何技术分析指标来分析皆有盲点很难贴切的反映出行情的动态，K线总在行情发展到一个严重的超买或超卖的区域时，提供我们一个警戒的和正确的买卖点，由涨转跌或由跌转涨，在K线中都会产生寂静的状态，其转折点在K线表现无疑，并可以价的变化角度来分析行情。当股价每每以单脚形成V型强烈上升时或开高走低巨量长绿，股价形成单日反转，并往往使人措施行情，唯有深入了解K线所蕴含的含义，才能掌握股价走势的变动。</span></p><p><span>K线的使用会影响到买卖的交易哲学，是否敢买、敢卖或个人的性格是否果断，肯认错不拖延呵对风险的偏好。买卖有如高手过招，在反转时必须立即反应，否则只有等待解套。</span></p><p>&nbsp;</p><h4><a name="二k线的基础知识" class="md-header-anchor"></a><span>二.K线的基础知识</span></h4><p><span>Ｋ线是由开盘价、最高价、最低价、收盘价所组成，也是记录买方和卖方实战的过程；如果收盘价高于开盘价就以“实体红线”表示，收盘价低于开盘价则以“实体绿线”表示，最高价及最低价则以“影线”表示，高价拉回则留上影线，低价拉回则留下影线，因此这种多空实战的记录，就是来预测未来是多头还是空头的一种指标。 K线是技术分析的基本工具，因此学习K线的时候，首先必须了解它的画法。</span></p><h5><a name="1k线的画法" class="md-header-anchor"></a><span>1.K线的画法</span></h5><p><span>K线的画法：K线又称阴阳线，是将每天的开盘价与收盘价画成直立的方块，若当天最高价大于收盘价或开盘价，则在方块上方加画一直线称为上影线，而当天之最低价弱小于开盘价或收盘价，则在方块下方加画一直线称为下影线。阳线方块多以红色表示，代表当天收红盘，阴线之方块会以绿色表示，当天则收绿盘。</span></p><p><img src="..\picture\image-20200312094253167.png" alt="image-20200312094253167"  style="zoom:80%;" /></p><p>&nbsp;</p><p><span>K线适用于任何时间架构，把每天的开盘价、最高价、最低价与收盘价每天股价表示出来就叫做日线。把每周的开盘价、最高价、最低价与收盘价等表示出来的叫周线，而把一个月或一年的开盘价最高价、最低价、收盘价表示出来就叫月线或年线。</span></p><h5><a name="2k线的主要形状" class="md-header-anchor"></a><span>2.K线的主要形状</span></h5><p><span>1）光头阳线和光头阴线；光脚阳线和光脚阴线 ；光头光脚阳线和光头光脚阴线 </span></p><p><img src="..\picture\image-20200312094630250.png" alt="image-20200312094630250"  style="zoom:67%;" /></p><p>&nbsp;</p><p>&nbsp;</p><p><span>2) 十字型 ；T字型和倒T字型 ；一字型 </span></p><p><img src="..\picture\image-20200312095013223.png" alt="image-20200312095013223"  style="zoom:80%;" /></p><p>&nbsp;</p><h5><a name="3单根k线的含义" class="md-header-anchor"></a><span>3.单根K线的含义</span></h5><p><span>应用单根K线研判行情，主要从实体的长短、阴阳，上下影线的长短以及实体的长短与上下影线长短之间的关系等几个方面进行。</span></p><p><span>（1）大阳线实体和大阴线实体</span></p><p>&nbsp;</p><p><img src="..\picture\image-20200312095357162.png" alt="image-20200312095357162" align="left" style="zoom: 50%;" /><span>  </span></p><p>&nbsp;</p><p><span>【注解】长红线或大阳线，表示强烈涨升，气势如虹。若出现跌势刚反转上涨时，代表空方失守，多方将获胜。</span></p><p>&nbsp;</p><p>&nbsp;</p><p><br><img src="..\picture\image-20200312095652872.png" alt="image-20200312095652872" align="left" style="zoom: 50%;" /><span>  </span></p><p>&nbsp;</p><p><span>【注解】长绿线或大阴线，表示空方极为强势。在上涨一段时间后出现长绿线，多方将告失守，通常将陷入盘跌或直转急下。在跌势时期出现长阴线，通常会加深盘势的弱势，需防股价暴跌</span></p><p>&nbsp;</p><p>&nbsp;</p><p><br><span>（2）有上下影线的阳线和阴线</span></p><p><img src="..\picture\image-20200312095919053.png" alt="image-20200312095919053" align="left" style="zoom: 67%;" /><span> </span><span>		</span><span>【注解】大多发生在多空激战，多方仍胜于空方。如在大涨后出现，未来可能下跌；如在大跌后出现，</span><span>		</span><span> 未来可能出现反弹。若上影线长与下影线，则空方出现顽强抵抗，但多方仍略胜一筹：而上影线短于下</span><span>		</span><span> 影线，则空方无力抵抗，多方胜利。当长上下影线小红实体K线时，多头稍站上风，但欲振乏力，未来</span><span>		</span><span> 可能下跌。当短上下影线小红实体K线时，则陷入窄幅震荡盘整</span></p><p>&nbsp;</p><br><p><img src="..\picture\image-20200312100139050.png" alt="image-20200312100139050" align="left" style="zoom:67%;" /><span>		</span><span>【注解】大多发生在多空激战，空方仍胜于多方。如在大跌后出现，未来可能反弹；如在大涨后出现，</span><span>		</span><span> 未来可能出现盘跌格局。若下影线长与上影线，则多方出现顽强抵抗，但空方仍略胜一筹：而下影线短</span><span>		</span><span> 于上影线，则多方无力抵抗，空方胜利。当长上下影线小绿实体K线时，空头稍站上风，未来可能下</span><span>		</span><span> 跌。当短上下影线小绿实体K线时，则陷入窄幅震荡盘整</span></p><p>&nbsp;</p><p><span>（3）有上影线的光脚阳线和阴线</span></p><p><img src="..\picture\image-20200312100446473.png" alt="image-20200312100446473" align="left" style="zoom: 67%;" /><span>        </span></p><p><span>	</span><span>    【注解】多头格局，但上涨卖压沉重，未来可能下跌。若在上涨末段出现，宜注意是否留下一根长长的上</span><span>		</span><span>  影线，是发出反转的信号</span></p><p>&nbsp;</p><p>&nbsp;</p><p><img src="..\picture\image-20200312101221767.png" alt="image-20200312101221767" align="left" style="zoom:67%;" /><span> </span><span>		</span></p><p><span>		</span><span>【注解】空方强势，上涨卖压沉重，未来可能下跌。若在上涨末段出现，是要反转下跌的信号</span></p><p>&nbsp;</p><p>&nbsp;</p><p><span>（4）有下影线的光头阳线和阴线</span></p><p>&nbsp;</p><p><img src="..\picture\image-20200312101403487.png" alt="image-20200312101403487" align="left" style="zoom:67%;" /><span>         </span></p><p><span>	</span><span>    【注解】多头转强，买方站上风，下档买盘强劲。如在整理盘或长期跌势后，出现留下影线的红K线，可</span><span>		</span><span>  能为上涨之前兆，而下影线越长，则反弹力道越强。</span></p><p>&nbsp;</p><p>&nbsp;</p><p><img src="..\picture\image-20200312101512002.png" alt="image-20200312101512002" align="left" style="zoom:67%;" /><span>    </span><span>	</span></p><p><span>		</span><span>  【注解】空方站上风，但下档有买盘支撑。如在跌势盘，出现留下影线的绿K线，可能为反弹前兆，而下</span><span>			</span><span>影线越长，则反弹力道越强。在上涨高档出现，有可能转为盘整或下跌，宜密切注意后势发展。</span></p><p>&nbsp;</p><p>&nbsp;</p><p><span>（5）十字星</span></p><p><img src="..\picture\image-20200312101752566.png" alt="image-20200312101752566" style="zoom:67%;" /></p><p><span>  【注解】多空势均力敌，通常为反转或盘整的前兆。如果上下影线影线长，表示多空双方对抗激烈，未来可能会有变化，如果上下影线短表示未来可能陷入盘整。若出现在近期波段的高点，则多方力量减弱，股价有可能下跌。十字线出现在近期波段的低点，则空方力量转弱，股价有上涨的可能。当出现在盘整时，多空双方则必须再较量，才能分出高下，应密切注意后势发展。</span></p><p>&nbsp;</p><p><span>（6）“T”字线</span></p><p><img src="..\picture\image-20200312102048520.png" alt="image-20200312102048520" align='left' style="zoom:100%;" /><span> </span><span>	</span><span>【注解】 T字型，虽下档有卖压，但开盘价以下买盘积极，次日若卖方不强，则股价有可能反转向上。</span><span>	</span><span>  在连涨数日后出现，多方出现疲态，可能开始转弱;但在暴涨的格局中出现，则有可能继续往上攻坚。</span><span>	</span><span>  在跌势的盘局中出现，则可能是反转的信号，但应特别注意盘势是否已经止跌向上，还是下跌波中的</span><span>					</span><span>小反弹。如果下影线越长，代表虽卖压强，但买盘更强，属多方胜利。</span></p><p>&nbsp;</p><p><span>（7）“⊥”字线</span></p><p><img src="..\picture\image-20200312102255357.png" alt="image-20200312102255357" align='left'  /><span>   【注解】买气虽强，但上档压力更沉重，若次日买方不强，则股价有可能反转向下。在连续上涨中发</span><span>	</span><span>   </span><span>	</span><span>生，则有可能开始转弱，所留上影线越长，则卖压越沉重。在连续下跌中出现，应特别注意次日所产生</span><span>	</span><span>的变化，否则还是有可能继续下跌。</span></p><p>&nbsp;</p><p><span>（8）“-”字线</span></p><p><span> 【注解】属于非常极端型，不是多头最强势、空头最强势就是极度冷门股。开盘跳空涨停板一价到收盘。开盘跳空跌停板一价到收盘。非常冷门的股票，一整天只在同一个价位成交一两笔股价。停牌。</span></p><p>&nbsp;</p><h5><a name="4k线总结" class="md-header-anchor"></a><span>4.K线总结</span></h5><figure><table><thead><tr><th><span>图形</span></th><th style='text-align:center;' ><span>名称</span></th><th style='text-align:center;' ><span>应用说明</span></th><th><span>图形</span></th><th style='text-align:center;' ><span>名称</span></th><th style='text-align:center;' ><span>应用说明</span></th><th style='text-align:center;' ><span>图形</span></th><th><span>名称</span></th><th style='text-align:center;' ><span>应用说明</span></th></tr></thead><tbody><tr><td><img src="..\picture\image-20200312102730920.png"  /></td><td style='text-align:center;' ><span>大阳线</span></td><td style='text-align:center;' ><span>强烈涨势</span></td><td><img src="..\picture\image-20200312102812345.png" referrerpolicy="no-referrer" alt="image-20200312102812345"></td><td style='text-align:center;' ><span>大阴线</span></td><td style='text-align:center;' ><span>表示大跌</span></td><td style='text-align:center;' ><img src="..\picture\image-20200312102826660.png" referrerpolicy="no-referrer" alt="image-20200312102826660"></td><td><span>大十字线</span></td><td style='text-align:center;' ><span>多空势均力敌将变盘</span></td></tr><tr><td><img src="..\picture\image-20200312103041754.png" referrerpolicy="no-referrer" alt="image-20200312103041754"></td><td style='text-align:center;' ><span>大阳下影线</span></td><td style='text-align:center;' ><span>抵挡超强</span></td><td><img src="..\picture\image-20200312103051086.png" referrerpolicy="no-referrer" alt="image-20200312103051086"></td><td style='text-align:center;' ><span>大阴下影线</span></td><td style='text-align:center;' ><span>多空交战跌后若有支撑反弹</span></td><td style='text-align:center;' ><img src="..\picture\image-20200312103407642.png" referrerpolicy="no-referrer" alt="image-20200312103407642"></td><td><span>十字线</span></td><td style='text-align:center;' ><span>多方较有利</span></td></tr><tr><td><img src="..\picture\image-20200312103139092.png" referrerpolicy="no-referrer" alt="image-20200312103139092"></td><td style='text-align:center;' ><span>大阳上影线</span></td><td style='text-align:center;' ><span>高档换手</span></td><td><img src="..\picture\image-20200312103503615.png" referrerpolicy="no-referrer" alt="image-20200312103503615"></td><td style='text-align:center;' ><span>大阴上影线</span></td><td style='text-align:center;' ><span>多空交战空方较强</span></td><td style='text-align:center;' ><img src="..\picture\image-20200312103418321.png" referrerpolicy="no-referrer" alt="image-20200312103418321"></td><td><span>十字线</span></td><td style='text-align:center;' ><span>空方较有利</span></td></tr><tr><td><img src="..\picture\image-20200312103146801.png" referrerpolicy="no-referrer" alt="image-20200312103146801"></td><td style='text-align:center;' ><span>小阳线</span></td><td style='text-align:center;' ><span>方向不明多方稍强</span></td><td><img src="..\picture\image-20200312103511354.png" referrerpolicy="no-referrer" alt="image-20200312103511354"></td><td style='text-align:center;' ><span>小影线</span></td><td style='text-align:center;' ><span>方向不定空方稍强</span></td><td style='text-align:center;' ><img src="..\picture\image-20200312103426397.png" referrerpolicy="no-referrer" alt="image-20200312103426397"></td><td><span>Ｔ字线</span></td><td style='text-align:center;' ><span>多方有利转机</span></td></tr><tr><td><img src="..\picture\image-20200312103318096.png" referrerpolicy="no-referrer" alt="image-20200312103318096"></td><td style='text-align:center;' ><span>上影阳线</span></td><td style='text-align:center;' ><span>多方主导但需谨慎</span></td><td><img src="..\picture\image-20200312103559105.png" referrerpolicy="no-referrer" alt="image-20200312103559105"></td><td style='text-align:center;' ><span>上影线阴线</span></td><td style='text-align:center;' ><span>空访主导但极弱线</span></td><td style='text-align:center;' ><img src="..\picture\image-20200312103451126.png" referrerpolicy="no-referrer" alt="image-20200312103451126"></td><td><span>倒Ｔ字线</span></td><td style='text-align:center;' ><span>高档小心</span></td></tr><tr><td><img src="..\picture\image-20200312103331590.png" referrerpolicy="no-referrer" alt="image-20200312103331590"></td><td style='text-align:center;' ><span>下影阳线</span></td><td style='text-align:center;' ><span>多方强势线</span></td><td><img src="..\picture\image-20200312103611221.png" referrerpolicy="no-referrer" alt="image-20200312103611221"></td><td style='text-align:center;' ><span>下影阴线</span></td><td style='text-align:center;' ><span>多访弱势线</span></td><td style='text-align:center;' ><img src="..\picture\image-20200312103437294.png" referrerpolicy="no-referrer" alt="image-20200312103437294"></td><td><span>一字线</span></td><td style='text-align:center;' ><span>飙涨或飙跌</span></td></tr><tr><td><img src="..\picture\image-20200312103347851.png" referrerpolicy="no-referrer" alt="image-20200312103347851"></td><td style='text-align:center;' ><span>铁锤线</span></td><td style='text-align:center;' ><span>高档差低档佳</span></td><td><img src="..\picture\image-20200312103619699.png" referrerpolicy="no-referrer" alt="image-20200312103619699"></td><td style='text-align:center;' ><span>铁锤线</span></td><td style='text-align:center;' ><span>高档差低档佳</span></td><td style='text-align:center;' >&nbsp;</td><td>&nbsp;</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><p>&nbsp;</p><h5><a name="5请注意" class="md-header-anchor"></a><span>5.请注意</span></h5><p><img src="..\picture\image-20200312103829132.png" alt="image-20200312103829132" align='left' style="zoom:67%;" /><span>    </span></p><p>&nbsp;</p><p>&nbsp;</p><p><span>		</span><span>红Ｋ线并不代表今天的股票一定是涨的，也有可能开在低</span><span>		</span><span>盘，而收盘却在平盘以下的红Ｋ线，以Ｋ线的原理来说红Ｋ</span><span>		</span><span>线所代表的意义是在整个涨升的气势，而不是涨跌，这是很</span><span>		</span><span>多人所误解的．</span></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h4><a name="三k线组合的实战用法" class="md-header-anchor"></a><span>三.K线组合的实战用法</span></h4><p><span>对于两根K线的组合来讲，第二天的K线是进行行情判断的关键。简单地说，第二天我空双方争斗的区域越高，越有利于上涨；越低就越有利于下跌。也就是说从区域1到区域5是多方力量减少、空方力量增加的过程。 </span></p><p><img src="..\picture\image-20200312104050593.png" alt="image-20200312104050593" style="zoom:80%;" /></p><p>&nbsp;</p><h5><a name="一底部形态" class="md-header-anchor"></a><span>一、底部形态</span></h5><p><img src="..\picture\image-20200312104203736.png" alt="image-20200312104203736" align='left' style="zoom:67%;" /><span>		</span></p><p><span>		</span><span>多为股价下跌一段时间后形成的K线组合形态，空方力量已成强弩之末，而多方力量蓄势待</span><span>		</span><span>发。是较为典型的底部形态，为较好的买入时机。</span></p><p>&nbsp;</p><p>&nbsp;</p><h6><a name="1早晨之星img-srcpictureimage-20200312104358936png-altimage-20200312104358936-alignmiddle-stylezoom-50-" class="md-header-anchor"></a><span>1、早晨之星</span><img src="..\picture\image-20200312104358936.png" alt="image-20200312104358936" align="middle" style="zoom: 50%;" /></h6><p><img src="..\picture\image-20200312104620517.png" alt="image-20200312104620517"   /></p><p><span>形态特征：</span></p><p><span>（1）第一天的实体阴阳线与趋势方向一致，为大阴线。</span></p><p><span>（2）第二天的小实体星形线与第一天有缺口，小实体的阴阳并不重要。</span></p><p><span>（3）第三天的K线的阴阳与第一天K线的阴阳相反，为大阳线。</span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>股价在跌至新低（或前期成交密集区）时，往往会收一根中阴线或大阴线，看似大势不妙，但第二天股价只是小幅跳空下行。收盘时收出一实体部分较短，带有上下影线的小阳线或小阴线或十字星，形成星体部分。而第三天股价就在平开或微微开高后，一路上行，最终收一中阳线（或大阳线），企稳待涨信号正式发出 </span></p><p>&nbsp;</p><p><span>确认原则及注意事项</span></p><p><span>在这一案例中，我们也有几点要提醒投资者注意：</span></p><p><span>1、早晨之星出现在下降趋势之后，才具有看涨的意义；</span></p><p><span>2、如果早晨之星出现后，次日股价向上跳空开盘或是在较高的价位上拉出一根放量阳线，则其转势向上的信号就越强。</span></p><p><span>3、早晨之星是次要的底部反转信号，因此一旦其出现后，等待次日的验证信号就显得十分重要。而设定止损位是我们必要的选择，对这种Ｋ线形态而言，出现早晨之星形态那一天的最低价，往往就是一个很好的止损位，一旦股价跌破该价位，则说明下跌抵抗失败，投资者应及时止损出局</span></p><p>&nbsp;</p><h6><a name="2刺透底部img-srcpictureimage-20200312105214435png-altimage-20200312105214435-stylezoom67-" class="md-header-anchor"></a><span>2、“刺透底部”</span><img src="..\picture\image-20200312105214435.png" alt="image-20200312105214435" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312105318203.png"  alt="image-20200312105318203"  /></p><p><span>形态特征：</span></p><p><span>（1）第一天是继续反映下降趋势的长阴线实体</span></p><p><span>（2）第二天是阳线实体，开盘价低于前一天的阳线实体. </span></p><p><span>（3）阳线的收盘价在第一天的实体中上部</span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>穿刺线形成于下降趋势中，第一天的长阴线保持了下降的含义。第二天的跳空低开进一步加强下降的含义。然而市场开始反弹，摒弃收盘收在前一天大阴线实体的中点之上。阳线穿入阴线的幅度越大，越像是反转形态。</span></p><p>&nbsp;</p><p><span>确认原则及注意事项：</span></p><p><span>1、对于该形态第二根阳线插入前面阴线的实体部分越长，其转势的可靠程度就越高。一般来说，一半以上才有分析意义。  </span></p><p><span>2、辨别“曙光初现”形态可靠性的一个重要依据就是成交量。通常而言，成交量若不能放大到一个足够的数量级，是不能轻言反转的。  </span></p><p><span>3、投资者对股价在第一次探底中出现的“曙光初现”形态，要保持一分警惕(可能会是骗钱)，而在二次探底中出现的“曙光初现”形态，其可靠性相对较高。 </span></p><p><span>4、以阳线的最低点作为止损点，防止庄家的骗线</span></p><p>&nbsp;</p><h6><a name="3底部的穿头破脚img-srcpictureimage-20200312105620690png-altimage-20200312105620690-stylezoom67-" class="md-header-anchor"></a><span>3、底部的“穿头破脚”</span><img src="..\picture\image-20200312105620690.png" alt="image-20200312105620690" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312105640203.png" alt="image-20200312105640203"   /></p><p><span>形态特征：</span></p><p><span>（1）下跌趋势中</span></p><p><span>（2）第二天的实体必须完全包含前一天的实体</span></p><p><span>（3）第二根实体的颜色与第一根的颜色相反!</span></p><p>&nbsp;</p><p><span>市场含义：    </span></p><p><span>牛市包含形处在下跌趋势中，只有小成交量配合和小阳线实体发生。第二天，以新低开盘，然后是迅速的卖出狂潮并伴随大的成交量。收盘比前一天的开盘更高。下跌的趋势已经结束。如果第三天的价格仍然保持在较高的位置，那么，下跌趋势将反转。</span></p><p>&nbsp;</p><p><span>确认原则及注意事项</span></p><p><span>对于牛市包含形来说，确认原则：</span></p><p><span>1、第二根阳线的收盘价越低，见第回升的可能性越大；  </span></p><p><span>2、第二根阳线在开盘阶段大幅低于前期低点，然后反弹上涨，股价见低上攻的可能性大增：</span></p><p><span>3、第二根阳线开盘时的初段的成交量越大，表示中了空头陷阱埋伏的投资者越多，转势的可能性也越大。</span></p><p><span>但在实战运用过程中需注意：</span></p><p><span>1、这种组合必须在明显的上升或下跌趋势中出现，才有研判的意义。</span></p><p><span>2、这种组合有时会被庄家当成震仓洗盘的工具。识别图形陷阱可以从三个方面入手：首先要看股价所处的位置，其次要看价量配合情况，最后看重心的变化情况</span></p><p>&nbsp;</p><p>&nbsp;</p><h6><a name="4t字型锤型底部img-srcpictureimage-20200312105856250png-altimage-20200312105856250-stylezoom67-" class="md-header-anchor"></a><span>4、T字型(锤型)底部</span><img src="..\picture\image-20200312105856250.png" alt="image-20200312105856250" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312105918118.png" alt="image-20200312105918118"  /></p><p><span>形态特征：</span></p><p><span>（1）小实体在交易区域的上面</span></p><p><span>（2）下影线的长度应该比实体的长度长的多，一般要求是实体长度的2-3倍。</span></p><p><span>（3）上影线非常短甚至没有。</span></p><p><span>（4）小实体的阴阳并不重要。</span></p><p><span>（5）锤型线处于下降趋势中。</span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>锤形线处在下降趋势中。当天的疯狂卖出被有效遏制，以较高价收盘。此时，投资者担心踏空。如果收盘价高于开盘价，产生一根阳线，情况甚至更有利于上升。第二天较高的开盘价和更高的收盘价将使锤形线的牛市含义得到确认。</span></p><p>&nbsp;</p><p><span>确认原则及注意事项：</span></p><p><span>这里有三点要提醒投资者注意：</span></p><p><span>1、如果锤头线的实体部分与前一根Ｋ线之间出现跳空，则反转意义较浓；</span></p><p><span>2、通常在出现锤头线时，要伴随底部放量，放量越明显，转势信号越强烈。  </span></p><p><span>3、由于锤型线是次要的底部反转信号，因此一旦其出现后，等待次日的验证信号就显得十分重要。而设定止损位是我们必要的选择，对这种Ｋ线形态而言，出现锤头形态那一天的最低价，往往就是一个很好的止损位，一旦股价跌破该价位，则说明下跌抵抗失败，投资者应及时止损出局。</span></p><p>&nbsp;</p><h6><a name="5倒t字型倒锤型）底部img-srcpictureimage-20200312110157660png-altimage-20200312110157660-stylezoom67-" class="md-header-anchor"></a><span>5、倒T字型（倒锤型）底部</span><img src="..\picture\image-20200312110157660.png" alt="image-20200312110157660" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312110214553.png" alt="image-20200312110214553"  style="zoom:100%;" /></p><p><span>形态特征： </span></p><p><span>（1）小实体在价格区域的较低部分形成</span></p><p><span>（2）不要求有缺口，但要在一个明显的下降趋势之后</span></p><p><span>（3）上影线的长度一般比实体的长度长2倍以上</span></p><p><span>（4）下影线短到可以认为没有</span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>对于倒锤线，当市场以跳空向下开盘时，已经有了下降趋势。当天的上冲失败，市场以较低的价位收盘。这种形态决定趋势反转是成功还是失败，第二天的开盘是判断的标准。如果第二天的开盘高于倒锤线实体，潜在的趋势反转将引起空头的恐慌，这将支持股价进一步上扬</span></p><p>&nbsp;</p><p><span>确认原则及注意事项</span></p><p><span>在这一案例中，我们也有几点要提醒投资者注意：</span></p><p><span>1、倒锤头出现在下降趋势之后，才具有看涨的意义；</span></p><p><span>2、如果倒锤头出现后，次日股价向上跳空开盘或是在较高的价位上拉出一根放量阳线，则其转势向上的信号就越强。</span></p><p><span>3、倒锤头是次要的底部反转信号，因此一旦其出现后，等待次日的验证信号就显得十分重要。并且应当把出现倒锤头形态那一天的最低价设定止损位，一旦股价跌破该价位，则说明下跌抵抗失败，投资者应及时止损出局</span></p><p>&nbsp;</p><h5><a name="二顶部形态" class="md-header-anchor"></a><span>二、顶部形态</span></h5><p><span>  </span><img src="..\picture\image-20200312110406568.png" alt="image-20200312110406568" align='left' style="zoom:67%;" /><span>		</span></p><p><span>	</span><span>  多为股价上涨一段时间后形成的K线组合形态，多方力量已成消耗殆尽，而空方积蓄力量开始打压。    </span><span>	</span><span>  是较为典型的顶部形态，为较好抛出时机。</span><span>		</span><span>                        </span></p><p><span>    </span><span>						</span></p><h6><a name="1黄昏之星" class="md-header-anchor"></a><span>1、黄昏之星 </span></h6><p>&nbsp;</p><p><img src="..\picture\image-20200312110728486.png" alt="image-20200312110728486"   /></p><p><span>形态特征：</span></p><p><span>（1）第一天的实体阴阳线与趋势方向一致，为大阳线</span></p><p><span>（2）第二天的小实体星形线与第一天有缺口，小实体的阴阳并不重要。</span></p><p><span>（3）第三天的K线的阴阳与第一天K线的阴阳相反，为大阴线。 </span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>黄昏之星的情况与早晨之星正好相反，是上升趋势出现反转的组合形态。黄昏之星的开始是一根长阳线，它加强了原有的上升趋势。第二天价格向上跳空出现新高，交易发生在小的范围内，收盘同开盘接近持平。这个小实体显示了不确定性的开始。第三天价格跳空低开，收盘更低。显示反转已经发生。 </span></p><p>&nbsp;</p><p><span>确认原则</span></p><p><span>（１）小星线的颜色并不重要，标准的形态中，小星线与前一根Ｋ线的实体之间存在着价格跳空。  </span></p><p><span>（２）黄昏之星必须出现在上升趋势之后，或者出现在横向整理区域的顶部才有技术意义。 </span></p><p><span>（３）通常而言，位于一个上涨趋势后的带量黄昏之星，往往会构成市场反转的顶部。</span></p><p>&nbsp;</p><p><span>注意事项</span></p><p><span>最后要提醒投资者注意的一点是，由于黄昏之星是一种次要的顶部反转信号，因此其出现图形陷阱的可能性较大。而判断黄昏之星是否真的形成顶部反转的依据有三点： </span></p><p><span>（１）黄昏之星成交量是否创近期天量。如果是，则成为市场顶部的可能性较大。另外，如果黄昏之星前一根Ｋ线创天量，市场发生反转的可能性也很大。</span></p><p><span>（２）黄昏之星是否试图突破某个重要阻力位，而在重要阻力位出现的黄昏之星通常是带量的，这一点应引起投资者的高度重视。 </span></p><p><span>（３）黄昏之星与前一根Ｋ线实体之间是否有价格跳空也是判断流星线有效性的一个重要依据。</span></p><p><span>（4）一般来说，如果该形态出现在反弹行情顶部，股价快速拉升之后，那么其可靠性较高；反之，若该形态出现在股价突破颈线之后，涨幅也相对较小时，则庄家洗盘的可能性较大</span></p><p><span>（5）黄昏之星形成后股价重心的变动情况。</span></p><p>&nbsp;</p><h6><a name="2乌云盖顶img-srcpictureimage-20200312110956190png-altimage-20200312110956190-stylezoom67-" class="md-header-anchor"></a><span>2、乌云盖顶</span><img src="..\picture\image-20200312110956190.png" alt="image-20200312110956190" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312111006634.png" alt="image-20200312111006634"  /></p><p><span>形态特征：</span></p><p><span>（1）第一天是继续指出上升趋势的长阳线。</span></p><p><span>（2）第二天是开盘高于第一天最高点的阴线</span></p><p><span>（3）第二天的阴线的收盘低于第一天阳线实体的中部。</span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>乌云盖顶的k线组合出现在上升趋势中。在典型的上升趋势中，出现了一根长阳线。第二天跳高开盘，收盘时价格下降到阳线实体的中间之下。明显的反转趋势已经发生。</span></p><p>&nbsp;</p><p><span>确认原则及注意事项：</span></p><p><span>投资者在运用该形态进行分析时，应注意以下几个方面：</span></p><p><span>（1）第二根Ｋ线（即阴线）的开盘价应高于第一根Ｋ线的最高价，但收盘时，股价大幅回落。同时，其阴线实体应深入到第一根Ｋ线实体部分的一半以下，否则分析意义不大。而且深入幅度越大，信号就越强烈。</span></p><p><span>（２）在分时图上，第二根Ｋ线在开市阶段曾经向上突破明显的阻力位，然后掉头向下。这说明多头上攻乏力，见顶迹象开始显露。下例中的大显股份在02年７月２２日的当天走势就是如此。 </span></p><p><span>（３）第二根Ｋ线的成交量要明显放大，这说明市场主力高位派发的意愿已很强烈。在上例中，我们可以看到：７月２２日之后，该股成交量快速萎缩，虽偶有反弹，但疲态已显。 最后，要提醒投资者注意的一点是，由于该形态是较次要的见顶信号，因此其可靠性也因其出现的位置不同而大相径庭</span></p><p><span>（4）一般来说，如果该形态出现在反弹行情顶部，股价快速拉升之后，那么其可靠性较高；反之，若该形态出现在股价突破颈线之后，涨幅也相对较小时，则庄家洗盘的可能性较大。</span></p><p>&nbsp;</p><h6><a name="3顶部的穿头破脚img-srcpictureimage-20200312111204804png-altimage-20200312111204804-stylezoom67-" class="md-header-anchor"></a><span>3、顶部的“穿头破脚”</span><img src="..\picture\image-20200312111204804.png" alt="image-20200312111204804" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312111217217.png" alt="image-20200312111217217"  /></p><p><span>形态特征：</span></p><p><span>（1）上升趋势中</span></p><p><span>（2）第二天的实体必须完全包含前一天的实体</span></p><p><span>（3）第二根实体的颜色与第一根的颜色相反!</span></p><p>&nbsp;</p><p><span>市场含义：    </span></p><p><span>熊市包含形处在上升趋势中，只有小成交量配合和小阳线实体发生。第二天，以新高开盘，然后是迅速的卖出狂潮并伴随大的成交量。收盘比前一天的开盘更低。上升的趋势已经被破坏。如果第三天的价格仍然保持在较低的位置，那么，上升趋势将反转。</span></p><p>&nbsp;</p><p><span>确认原则及注意事项</span></p><p><span>对于熊市包含形来说，确认原则：</span></p><p><span>1、第二根阴线的收盘价越低，见顶回落的可能性越大；  </span></p><p><span>2、第二根阴线在开盘阶段大幅超越前期高点，然后回头下跌，股价见顶回落的可能性大增：</span></p><p><span>3、第二根阴线开盘时的初段的成交量越大，表示中了多头陷阱埋伏的投资者越多，转势的可能性也越大。</span></p><p><span>但在实战运用过程中需注意：</span></p><p><span>1、这种组合必须在明显的上升或下跌趋势中出现，才有研判的意义。</span></p><p><span>2、这种组合有时会被庄家当成震仓洗盘的工具。识别图形陷阱可以从三个方面入手：首先要看股价所处的位置，其次要看价量配合情况，最后看重心的变化情况</span></p><p>&nbsp;</p><h6><a name="4顶部射击之星img-srcpictureimage-20200312111425526png-altimage-20200312111425526-stylezoom67-" class="md-header-anchor"></a><span>4、顶部“射击之星”</span><img src="..\picture\image-20200312111425526.png" alt="image-20200312111425526" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312111439369.png" alt="image-20200312111439369"  /></p><p><span>形态特征：</span></p><p><span>（1）小实体在价格区域的较低部分形成。</span></p><p><span>（2）在上升趋势之后，以向上的价格跳空开盘。</span></p><p><span>（3）上影线的长度一般比实体的长度长3倍以上。</span></p><p><span>（4）下影线短到可以认为没有 </span></p><p>&nbsp;</p><p><span>技术含义：</span></p><p><span>射击之星处在上升趋势中，市场跳空向上开盘，出现新高，最后收盘在当天的较低位置。第二天的跳空行为只能当成看跌的熊市信号。</span></p><p>&nbsp;</p><p><span>确认原则</span></p><p><span>（１）流星线的颜色并不重要，标准的形态中，流星线与前一根Ｋ线的实体之间存在着价格跳空。  </span></p><p><span>（２）流星线必须出现在上升趋势之后，或者出现在横向整理区域的顶部才有技术意义。  </span></p><p><span>（３）通常而言，位于一个上涨趋势后的带量流星线，往往会构成市场反转的顶部。</span></p><p><span>注意事项</span></p><p><span>最后要提醒投资者注意的一点是，由于流星线是一种次要的顶部反转信号，因此其出现图形陷阱的可能性较大。而判断流星线是否真的形成顶部反转的依据有三点： </span></p><p><span>（１）流星线成交量是否创近期天量。如果是，则成为市场顶部的可能性较大。另外，如果流星线前一根Ｋ线创天量，市场发生反转的可能性也很大。</span></p><p><span>（２）流星线是否试图突破某个重要阻力位，而在重要阻力位出现的流星线通常是带量的，这一点应引起投资者的高度重视。</span></p><p><span>（３）流星线与前一根Ｋ线实体之间是否有价格跳空也是判断流星线有效性的一个重要依据。  </span></p><p><span>（4）流星线形成后股价重心的变动情况。</span></p><p><span>总之，投资者在运用流星线来识别市场顶部时，一定要结合前后的Ｋ线来分析，此外成交量的作用也不能忽视，只有综合考虑这些因素，才能辨别出Ｋ线形态的真伪。  </span></p><p>&nbsp;</p><h6><a name="5顶部吊颈形态img-srcpictureimage-20200312111645783png-altimage-20200312111645783-stylezoom67-" class="md-header-anchor"></a><span>5、顶部“吊颈”形态</span><img src="..\picture\image-20200312111645783.png" alt="image-20200312111645783" style="zoom:67%;" /></h6><p><img src="..\picture\image-20200312111659014.png" alt="image-20200312111659014"  /></p><p><span>形态特征</span></p><p><span>（1）上吊线处于上升趋势中。</span></p><p><span>（2）小实体在交易区域的上面。</span></p><p><span>（3）下影线的长度应该比实体的长度长的多，一般要求是实体长度的2-3倍。</span></p><p><span>（4）上影线非常短甚至没有! </span></p><p><span>（5）小实体的阴阳并不重要。</span></p><p><span>技术含义</span></p><p><span>上吊线处在上升趋势中。当天的价格交易行为一定在低于开盘价的位置，之后反弹使收盘价几乎是在最高价的位置。上吊线中产生出来的长下影线显示了一个疯狂卖出是怎样开始的。如果市场第二天开盘较低，就有很多持有多头头寸等待卖出时机的参与者在一旁观望。如果小实体是阴线，并且第二天开盘较低，将使得上吊线的熊市含义得以确认。</span></p><p>&nbsp;</p><p><span>确认原则：  </span></p><p><span>1、跳空缺口: 若上吊线实体部分与前一根Ｋ线形成跳空缺口，则说明追高一族的成本高</span></p><p><span>2、第二根Ｋ线一般为长阴线: 上吊线出现后的第二根Ｋ线一般为阴线，阴线的长度越长，新一轮跌势开始的概率就越大。</span></p><p><span> 3、上吊线出现时，若当时成交量萎缩，则要等待出现下一个确认信号（第二天是否是放量阴线）才能做出最后的判断。</span></p><p><span>注意事项</span></p><p><span>上吊线也常常会出现在主力盘中震荡洗盘的时候，而判断顶部形态的上吊线和整理形态的上吊线通常可用以下两点进行区分：</span></p><p><span>1、上吊线出现的位置。如果股价在高位出现上吊线形态（是否有出货空间），则形成顶部的可能性较大；相反，如果股价刚脱离底部，则其成为整理形态的可能性较大——洗盘。</span></p><p><span> 2、上吊线形成时的成交量。如果上吊线伴有巨大的成交量，尤其是出现近期天量的时候，投资者要特别警惕股价可能会出现单日反转???——但不绝对，重要的是判断筹码的流向。相反，如果上吊线形成时，成交量大幅萎缩，投资者应等待出现另一个确认信号，以免落入陷阱</span></p><p><span> 3、上吊线形成后股价重心的变动情况。</span></p><p>&nbsp;</p><h5><a name="三应用k线组合应注意的问题" class="md-header-anchor"></a><span>三、应用K线组合应注意的问题：</span></h5><p><span>无论是一根K线，还是两根、三根以至更多的根K线，都是对多空双方争斗作出的一个描述，由它们的组合得到的结论都是相对的，不是绝对的。对股票投资者而言，结论只是一个建议作用。</span></p><p><span>在应用时，有时会发现运用不同种类的组合会得到不同的结论。有时应用一种组合得到明天会下跌的结论，但是次日股价没有下跌，反而上涨。这时的一个重要原则是尽量使用根数多的K线组合的结论，并将新的K线加进来重新进行分析判断。一般说来，多根K线组合得到的结果不大容易与事实相反。 </span></p></div>
+</body>
+</html>
