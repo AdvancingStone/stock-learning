@@ -1,0 +1,512 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>10.波浪理论</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n67"><a class="md-toc-inner" href="#波浪理论的基础--五升三降">波浪理论的基础--五升三降</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n566"><a class="md-toc-inner" href="#推动浪及其变异型态">推动浪及其变异型态</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n154"><a class="md-toc-inner" href="#修正浪的变异型态">修正浪的变异型态</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n196"><a class="md-toc-inner" href="#理想化的艾略特波动序列">理想化的艾略特波动序列</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n199"><a class="md-toc-inner" href="#艾略特波浪进阶">艾略特波浪进阶</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n243"><a class="md-toc-inner" href="#波浪理论的游戏规则">波浪理论的游戏规则</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n663"><a class="md-toc-inner" href="#波浪理论的原理">波浪理论的原理</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n260"><a class="md-toc-inner" href="#数浪的基本规则">数浪的基本规则</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n262"><a class="md-toc-inner" href="#数浪的两条基本规则">数浪的两条基本规则</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n309"><a class="md-toc-inner" href="#波浪理论的几个基本要点">波浪理论的几个基本要点</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n312"><a class="md-toc-inner" href="#波浪理论的缺陷">波浪理论的缺陷</a></span></p></div><p><a href='#波浪理论的基础--五升三降'><span>波浪理论的基础--五升三降</span></a></p><p><a href='#推动浪及其变异型态'><span>推动浪及其变异型态</span></a></p><p><a href='#修正浪的变异型态'><span>修正浪的变异型态</span></a></p><p><a href='#理想化的艾略特波动序列'><span>理想化的艾略特波动序列</span></a></p><p><a href='#艾略特波浪进阶'><span>艾略特波浪进阶</span></a></p><p><a href='#波浪理论的游戏规则'><span>波浪理论的游戏规则</span></a></p><p><a href='#波浪理论的原理'><span>波浪理论的原理</span></a></p><p><a href='#波浪理论的几个基本要点'><span>波浪理论的几个基本要点</span></a></p><p><a href='#波浪理论的缺陷'><span>波浪理论的缺陷</span></a></p><p>&nbsp;</p><p><span>波浪理论是一种具有特殊价值的工具，具体表现在其普遍性及精确性。</span></p><p><span>说它具普遍性，是指我们可在许多有关人类活动的领域中运用到它，且许多时候有令人难以置信的效果；</span></p><p><span>说它具有精确性，是指在确认以及预测走势的变化上，其准确性令人叹为观止。这是其他分析方法所难望其项背的 。</span></p><p><span>当时，准确地说在美股见底之前的半个小时，艾略特就预言，在未来的几十年将会出现一个大多头市场。他的这项预言，与仍然弥漫着熊气的市场截然相反。其时大部分人都不敢想象道·琼斯工业平均指数会超越它在１９２９年所创下的最高点（３８６点）。但是，事实证明波浪理论是对的! </span></p><p>&nbsp;</p><h4><a name="波浪理论的基础--五升三降" class="md-header-anchor"></a><span>波浪理论的基础--五升三降</span></h4><p><span>波浪理论认为：股票市场的发展遵循着五浪上升，三浪下降的基本型态，从而形成包含八浪的完整周期。 </span></p><p><span>前面五浪所组成的波浪是股市运行的主要方向，而后面三浪所组成的波浪是股市运行的次要方向（图）。 </span></p><p><img src="../picture/image-20200323184236563.png" alt="image-20200323184236563" style="zoom:67%;" /></p><p>&nbsp;</p><p><span>在这个完整的八浪周期结束之后，随之而来的是第二个类似的周期变动……，如此不断地重复。这样，较小级别一波浪总是包含在较大的波浪中，或者说：波浪理论认为，任一序列中，任一级次的浪，均可被细分以及再细分为较小级次的浪。但五升三降乃是其基础。 </span></p><p><span>由于波浪理论所描述的波浪“有界无限”（在实际应用中是有限的），所以，我们必须对每一级次的波浪作出标识，以及准确分析。习惯上，我们只关心所有级别中九个级别的波浪： </span></p><p><strong><span>超级大循环浪、大循环浪、循环浪；         基本浪、中型浪、小型浪；　  细浪、微浪、次微浪。</span></strong>
+</p><p><span>一般而言，超级大循环浪的运行时间往往会超过一个人的寿命。而细浪以下的更小级别的小波浪运行时间很少超过１小时。因此，在实际应用上，我们只关心这九个级次的波浪。 </span></p><p><span>超大循环浪（GrandSupercycle）：</span><code>&lt;I&gt;、&lt;II&gt;、&lt;III&gt;、&lt;IV&gt;、&lt;V&gt;，&lt;A&gt;、&lt;B&gt;、&lt;C&gt;；</code></p><p><span>大循环浪（Supercycle）：（I）、（II）、（III）、（IV）、（V），（A）、（B）、（C）；　</span></p><p><span>循环浪（Cycle）：I、II、III、IV、V，A、B、C；  </span></p><p><span>基本浪（Primary）：（1）、（2）、（3）、（4）、（5），a、b、c；　　　　　　　</span></p><p><span>中型浪（Intermediate）：1、2、3、4、5，a、b、c；</span></p><p><span>小型浪（Minor）：(ⅰ)、(ⅱ)、(ⅲ)、(iv)、(v)，(a)、(b)、(c)； </span></p><p><span>细浪（Minute）：ⅰ、ⅱ、ⅲ、iv、v，a、b、c；</span></p><p><span>微浪（Minuette）：1、2、3、4、5，(a)、(b)、(c)；　　　　　　　</span></p><p><span>次微浪（Subminuette）：ⅰ、ⅱ、ⅲ、iv、v，a、b、c； </span></p><p><span>上述标记符号并不是唯一合法的，也可以使用其他的标记符号。值得注意的是，不宜使用“大”、“特大”、“一、二、三……”等字眼，它除了只会让人觉得你不够专业外，没有任何好处。 </span></p><p><span>波浪理论的“五升三降”看似简单，实则深奥。浪中有浪更是包含了丰富的哲理，与中国古代的“太极生两仪、两仪生四象、四象生八卦……”的含义多少有些类似。 </span></p><p><span>一名高瞻远瞩的投资者，他总是会注意到目前股市的走势在更广阔的范围内处在什么阶段。波浪理论恰好就是这样一种合适的工具，就像一副大倍数的望远镜一样，但是到了关键时刻，它又可变成一副显微镜，帮助投资者捕捉市场大逆转的转折点。 </span></p><p><span>我要提醒投资者，每一个波浪并不是相等的，它可以压缩，可以延长，可以简单，可以复杂。总之，一切以型态为准。 </span></p><p><img src="../picture/image-20200323184821625.png" alt="image-20200323184821625" style="zoom:67%;" /></p><p><img src="../picture/image-20200323184858507.png" alt="image-20200323184858507" style="zoom:67%;" /></p><p>&nbsp;</p><p>&nbsp;</p><h4><a name="推动浪及其变异型态" class="md-header-anchor"></a><span>推动浪及其变异型态</span></h4><p><span>如果在你面前站着一只动物，你一定可以知道这是人或者是猫或是其他你所知道的动物，如果是一个人，你会知道他的哪部分与你不一样，但你会知道他是人。 </span></p><p><span>在艾略特波浪理论中，波浪的型态决定了其性质是推动浪还是修正浪。但是每一个浪的型态也不完全一样。 </span></p><p><span>在现实情况中，推动浪会因基本面的不同而出现一些变异型态。但以标准的推动浪来说，它们是五浪推动的，在牛市中是五浪上升，在熊市中是五浪下跌，五浪结束就会运行修正浪（见图１）。 </span></p><p><img src="../picture/image-20200323185203876.png" alt="image-20200323185203876" style="zoom:67%;" /></p><p><span>推动浪的变异型态则有数个种类。最初艾略特只提出了“浪的延伸”、“失败的第５浪”、“倾斜三角形”等类型。后来，又有人进一步指出，还有“第二种倾斜三角形”等形态。 </span></p><p><span>所谓浪的延伸，是指浪的运动发生放大或拉长的现象。当波浪发生延伸时，将会使得此一波浪序列形成大小相似的九浪，而如果延伸浪中再出现延伸，则我们会见到十三个大小相似的波浪。 </span></p><p><span>在现实中波浪的延伸是经常出现的，也许在未来，浪的延伸会被认为是推动浪的正常型态。如果在分析中无法辩认是哪一个波浪出现延伸，这不要紧。因为在艾略特的理论体系中，五浪、九浪与十三浪甚至十七浪的意义是一样的（见图２）。 </span></p><p><img src="../picture/image-20200323185323969.png" alt="image-20200323185323969" style="zoom:67%;" /></p><p><span>一般情况下，三个推动浪中有且仅有一个浪出现延伸。这个事实，使波浪的延伸现象变成了预测推动浪运行长度的一个相当有用的依据。 </span></p><p><span>举例来说，如果投资者发觉第３浪出现延伸时，那么第５浪理应只是一个和第１浪相似的简单结构。或者，当第１浪与第３浪都是简单的升浪，则有理由相信第５浪可能是一个延伸浪，特别是当成交量急剧增加时。请注意，在成熟的股市，延伸浪经常会出现在第３浪中；而在新兴股市中，第５浪往往也出现延伸的现象。 </span></p><p><span>推动浪可以延伸，也可以失败。艾略特使用“失败型态”的字眼，藉以描述第５浪的运动未能突破第３浪终点的价格水平。也有人使用“未完成的第５浪”这个词表达上述意思（见图３）。 </span></p><p><img src="../picture/image-20200323185445294.png" alt="image-20200323185445294" style="zoom:67%;" /></p><p><span>如果不使用“失败的”这个词，则不如使用“未创新高(低)的”。因为“未完成的”很容易让人误以为第５浪尚未结束。当第５浪不能创新高（低）时，很可能市场会出现大逆转。 </span></p><p><span>其包含的深层意义，并非在此三言两语所能说得清楚。要特别提醒读者的是，在实战应用中一定要注意第５浪中的次一级５个小浪清晰出现后才可确认此“失败５浪”。 </span></p><p><span>否则，可以演变成“４浪ｂ”，只要它是３浪运行的。“失败的第５浪”的出现，大多数情况下是由于基本面出现突然的重大变化而造成的。 </span></p><p><span>例如，利率变动、战争、政变等。不过，单有基本面的变化而第３浪没有过分扬升的话，则也很难令第５浪失败。正如现实世界难以完美一样，股市也经常会出现令人遗憾的地方。 </span></p><p><span>除了“延伸”和“失败”之外，倾斜三角形型态也是推动浪的变异型态。相对前两者来说，这确实是较为少见的。 </span></p><p><span>艾略特认为，倾斜三角形为推动浪中的一种特殊型态，主要出现在第５浪的位置。他指出，在股市中，一旦出现一段走势呈现快速上升或赶底的状况，其后经常会出现倾斜三角形型态。 </span></p><p><span>传统上，波浪理论将修正浪分为四种型态，现分别介绍如下： </span></p><p><strong><span>（１）锯齿型</span></strong><span> </span></p><p><span>锯齿型的修正浪是三浪运行的，以Ａ－Ｂ－Ｃ标识。它可以细分为更小一级的５－３－５的形式。多头市场中的锯齿型态，是三浪下跌的修正浪，空头市场中的锯齿型态，是三浪上升的修正浪。 </span></p><p><span>锯齿型态的修正浪，其Ａ浪由５个次一级的子浪组成。Ｂ浪则由３个次一级的子浪组成，而且Ｂ浪的终点明显地低于Ａ浪的始点水平。 </span></p><p><img src="../picture/image-20200323185608409.png" alt="image-20200323185608409" style="zoom:67%;" /></p><p><span>有时，特别是当一个锯齿型态未能达到正常的目标时，市场会出现连续两个（至多三个）锯齿型态。每一个锯齿型态之间由一个“三浪”所连接，即所谓的双重锯齿型或三重锯齿型。这些衍生的变化型态就好比是推动浪中的延伸型态，只是较为少见。 </span></p><p><img src="../picture/image-20200323185636255.png" alt="image-20200323185636255" style="zoom:67%;" /></p><p><strong><span>（２）平台型</span></strong><span> </span>
+<span>和锯齿型不一样，平台型的修正浪细分为３－３－５，同样以Ａ－Ｂ－Ｃ标识（如图３）。由于市场在推动浪之后缺乏足够的拉回力度，使得Ａ浪无法像锯齿型修正浪那样 形成完整的五浪。因此，Ｂ浪的反弹（下调）也得以接近Ａ浪的始点才结束。 </span></p><p><img src="../picture/image-20200323190124963.png" alt="image-20200323190124963" style="zoom:67%;" /></p><p><span>不像锯齿型中的Ｃ浪，结束的位置往往明显低于Ａ浪的终点。空头市场中的平台型态，与多头市场相同，只是倒转过来而已。整体而言，平台型态的修正浪，对于先前推动浪的拉回力度，经常小于锯齿型态。这也是读者预测市场走向比较可靠的依据之一。 </span></p><p><span>艾略特波浪理论认为，平台型修正浪经常出现在强劲的市场趋势中，许多时候是在延伸浪后出现。而且，市场走势愈强，平台整理的时间就愈短。 </span></p><p><span>扩张平台是指在平台型态中，Ｂ浪的终点超出Ａ浪的始点水平，而Ｃ浪也明显击破Ａ浪的终点而进一步探底。而强势平台则是指Ｂ浪超越Ａ浪的始点，而Ｃ浪则未击破Ａ浪的终点，显示出市势非常强劲。 </span></p><p><span>不过，在过往的日子里较大级别修正浪中，很少发现这种型态。 </span></p><p><strong><span>（３）三角型态</span></strong><span> </span></p><p><span>三角型态是唯一以五浪运行的修正浪，其次一级的细浪皆可划分为三浪，即３－３－３－３－３的型态。在三角型态中，大部分的次一级细浪都是锯齿型态（如图５）。但是，有时候某一个次级浪（Ｃ浪的可能性较大）会出现比其它次级浪更加复杂的型态。 </span></p><p><img src="../picture/image-20200323190219176.png" alt="image-20200323190219176" style="zoom:67%;" /></p><p><span>某些时候三角型态将会延伸为九浪，是因为其中一个次级浪本身以三角型态出现，Ｅ浪的可能性最大。 </span></p><p><span>艾略特认为，三角型态只会出现在第４浪、Ｂ浪或Ｘ浪中。第２浪形成三角型态的机会甚少。 </span></p><p><span>股票市场中，当三角型态结束之后运行的推动浪经常会出现“飚升”的情形。其上升目标大概就是三角型态最宽部分的距离。 </span></p><p><strong><span>（４）双重三或三重三型态</span></strong><span> </span></p><p><span>前面三种形态，都是简单型态的修正浪。而下面我们所讨论的双（三）重三则是复杂型态的修正浪（如图６）。 </span></p><p><img src="../picture/image-20200323190307125.png" alt="image-20200323190307125" style="zoom:67%;" /></p><p>&nbsp;</p><p><span>艾略特认为，当一个简单型态的修正浪运行结束之后，如果市场不允许出现新一组推动浪，那么它还要继续在过渡浪（标记为Ｘ浪）之后再运行一个修正浪。有时候，这种情况还要重复两次。而很多时候，是基本面的因素导致了这种局面的产生。 </span></p><p><span>前面我们曾提到过双重平台、三重平台，艾略特之所以将它们归入双重三或三重三型态，是因为他认为水平型态的修正浪和双重锯齿型态的非水平修正浪有所区别。 </span></p><p><span>我想，如果单纯以型态划分，这样的意见不够严谨。但是，如果对于在实际分析工作中，着重于修正浪的运行幅度来说，这样的划分显然更加合乎情理，也更容易让初学者接受。 </span></p><h4><a name="修正浪的变异型态" class="md-header-anchor"></a><span>修正浪的变异型态</span></h4><p><span>常人共有１０指和１０趾。但平常，我们也见过１２指的人，我们不能说他不是人，只能说他有些怪而已。 </span></p><p><strong><span>（１）强势三角形</span></strong><span> </span></p><p><span>通常三角型态中每一个次级浪均是依次递减（增）的，但在某些时候，特别是收缩三角形中，ｂ浪会突破ａ浪的始点，这样就形成了强势三角形型态。 </span></p><p><img src="../picture/image-20200323190439021.png" alt="image-20200323190439021" style="zoom:67%;" /></p><p><strong><span>（２）前置三角形</span></strong></p><p><img src="../picture/image-20200323190504528.png" alt="image-20200323190504528" style="zoom:67%;" /></p><p><strong><span>（３）变异的锯齿型</span></strong><span> </span></p><p><img src="../picture/image-20200323190532618.png" alt="image-20200323190532618" style="zoom:67%;" /></p><p><strong><span>（４）非常态顶部</span></strong></p><p><img src="../picture/image-20200323190555339.png" alt="image-20200323190555339" style="zoom:67%;" /></p><p><strong><span>（５）“Ａ－Ｂ底”：</span></strong></p><p><span>所谓“Ａ－Ｂ基础”的结构在Ａ－Ｂ底的型态中，市场在结束一段符合波浪划分的下跌走势之后以３浪向前推进，然后再出一段３浪下跌，最后才进入多头市场。 </span></p><p><span>我认为第（３）及第（５）项不能成立。另外，艾略特还提到了一种叫“半月”的形状。但不是修正浪的具体型态（图５），它只是价格指数走势的描述。在一个上升或下跌过程中，市场的多空力量对比缓慢地变化，以至突然加速，然后在一根长阳或长黑中结束。</span></p><p>&nbsp;</p><h4><a name="理想化的艾略特波动序列" class="md-header-anchor"></a><span>理想化的艾略特波动序列</span></h4><p><img src="../picture/image-20200323190648759.png" alt="image-20200323190648759" style="zoom:67%;" /></p><h4><a name="艾略特波浪进阶" class="md-header-anchor"></a><span>艾略特波浪进阶</span></h4><p><span>艾略特波浪理论三要素：浪型、幅度和时间。三者的重要性如排列顺序。 </span></p><p><strong><span>第１浪</span></strong></p><p><span>在技术上较具建议性。成交量及市场宽度出现明显的增加。但是，市场中绝大多数人只是认为不容易出现的一次中级行情而已。然而事实上，这一回价格指数出现了５个次一级的推动浪。不过，大部分的第１浪只是整个市场底部的一部分，随后的第２浪将会令市场认为熊市又再重现。大级别的第１浪总是在价格指数经历痛苦的调整之后出现的，市场资金充裕，但经济仍处于不景气，不过未来前景乐观（图２）。 </span></p><p><img src="../picture/image-20200323190748865.png" alt="image-20200323190748865" style="zoom:67%;" /></p><p><strong><span>第２浪</span></strong></p><p><span>它经常把第１浪的升幅吃去大半，以致于在第２浪的终点出现时，市场无利可言。因此，第２浪出现锯齿型或双重锯齿的概率比第４浪要大。 </span></p><p><strong><span>第３浪</span></strong></p><p><span>奇迹！强大且宽广。各种资金纷纷介入，令供求关系失衡，基本面彻底改善，投资者的信心明显恢复了。通常，会出现最大的成交量及价格变动。中等级别的第３浪通常是所有推动浪中最长的，经常出现延伸。如果是股票市场，二线股（特别是股本比较小的那一类）会脱颖而出，而三、四线股也试图跑出几只黑马。 </span></p><p><strong><span>第４浪</span></strong></p><p><span>第４浪通常比较规范。其深度及运行时间也比较容易预测。在一般情况下，第２浪简单与第４浪复杂总令市场人士始料不及。高价股的碎步与低价股的上窜下跳也确实精彩。　　　　　　　由于第５浪高价股很少有精彩的表演，故小幅上落较为正常，而低价股大幅回吐也只是为强劲的第５浪去制造泡沫而打底。 </span></p><p><strong><span>第５浪</span></strong></p><p><span>通常是产生泡沫的地方。市场到处呈现出一片繁荣的景象。人们开始透支未来。但是，市场上原来的领头羊现在已退居二线地位。在较大级别的第５浪，我们常常可以听到某些分析师的“豪言壮语”。大级别的第５浪在经济未开始变坏之前，可能就结束了。这时，你甚至会听说水果档的老板娘在股市中赚到了多少钱（图３)。 </span></p><p><img src="../picture/image-20200323190923748.png" alt="image-20200323190923748" style="zoom:67%;" /></p><p><strong><span>Ａ浪</span></strong></p><p><span>市场大众一般都会相信，“Ａ浪”只是正常的调整或反弹而已。有时，个别股票会提前出现大跌，技术上极具杀伤力。但散户仍然无视风险，坚决买入。Ａ浪为接下来的Ｂ浪铺底。 </span></p><p><strong><span>Ｂ浪</span></strong></p><p><span>“Ｂ浪是骗人的，是叫人上当的把戏，是多头陷阱，是投机者的天堂，也是散户心态的放纵。”通常，市场大众会认为Ａ浪只是正常的回调，Ｂ浪出现时大部分人会认为新一轮升浪已展开。传统的波浪理论认为，Ｂ浪在技术上很少是强劲的。在Ｂ浪中活跃的股票经常是有限的数量。特别是中等以上的级别，经常可以见到次级股票大幅下跌后的回升乏力，但绩优股却十分抗跌。投资者如果感觉到这个市场不对劲，那么，Ｂ浪的可能性就很大了（图４）。 </span></p><p><img src="../picture/image-20200323191025781.png" alt="image-20200323191025781" style="zoom:67%;" /></p><p>&nbsp;</p><p><strong><span>Ｃ浪</span></strong></p><p><span>下跌Ｃ浪通常极具破坏性。投资者在这个跌势中，除了抛售套现，别无他法。这个特性，在锯齿型中得到充分体现。上述的波浪特性，只是建议性的。并不意味着必然如此，那样的话，则是违反波浪理论的。这个世界除了“１＋１＝２”之外，再也没有其他所谓“必然”的东西了。波浪特性有时会误导投资者，以至贻误战机。因此，敬请投资者在实际分析工作中，一定要以浪型为准。然而，了解波浪的特性，分析师将会自信得多。 </span></p><p><strong><span>神奇数列</span></strong></p><p><span>既然波浪理论是“自然法则”，其理论基础应是在现实世界中的某些规律。“０．６１８”最初是由古埃及的数学家所发现并称之为“黄金比率”。在日常生活中，这样的例子随处可见。直至三世纪，数学家费波纳奇提出一个数列：　１，１，２，３，５，８，１３，２１，３４，５５，８９，１４４，２３３，３７７…… </span></p><p><span>这个数列被称为费波纳奇数列。这个数列有如下特性：　　　　　　　　　</span></p><p><span>（１）任何相列的两个数字之和都等于后一个数字，例如：　　　　　　　　　</span></p><p><span>１＋１＝２；　　　　　　　　　</span></p><p><span>２＋３＝５；　　　　　　　　　</span></p><p><span>５＋８＝１３；　　　　　　　　　</span></p><p><span>１４４＋２３３＝３７ ７；　　　　　　　　　</span></p><p><span>…… </span></p><p><span>（２）除了最前面３个数（１，２，３），任何一个数与后一个数的比率接近０．６１８，而且越往后，其比率越接近０．６１８：　　　　　　　　　</span></p><p><span>１÷５＝０．６；　　　　　　　　　</span></p><p><span>８÷１３＝０．６１８；　　　　　　　　　</span></p><p><span>２１÷３４＝０．６１８；　　　　　　　　</span></p><p><span>…… </span></p><p><span>（３）除了首３个数外，任何一个数与前一个数的比率，接近１．６１８。有趣的是，１．６１８的倒数是０．６１８。例如：　　　　　　　　　</span></p><p><span>１３÷８＝１．６２５；　　　　　　　　　</span></p><p><span>２１÷１３＝１．６１５；　　　　　　　　　</span></p><p><span>３４÷２１＝１．６１９；　　　　　　　　　</span></p><p><span>…… </span></p><p><span>（１）若推动浪中的一个子浪出现延伸，其他两个推动浪运行的幅度及时间，将会趋向一致。假设，当第３浪成为延伸浪，则第１浪与第５浪的升幅度运行时间将会大致相同。如果不是，则也可能以０．６１８的关系出现。 </span></p><p><span>（２）Ｃ浪的长度，常常以Ａ浪的１．６１８倍出现。可以利用下列公式测试Ｃ浪的下跌目标。</span></p><p><span>Ａ浪终点－Ａ浪×０．６１８ </span></p><p><span>（３）水平三角形内，每个次级浪的升跌幅度与其他浪的比率，通常以０．６１８的比例出现。</span></p><p><span>（４）第５浪的运行距离，与第１浪始点至第３浪终点的距离，也存在神奇数列的比率关系。</span></p><p><span>值得记住的神奇数有下列几个：０．６１８，０．３８２，０．５，１，１．６１８……。 </span></p><p>&nbsp;</p><h4><a name="波浪理论的游戏规则" class="md-header-anchor"></a><span>波浪理论的游戏规则</span></h4><p><span>三个推动浪中，第３浪不可能是最短的。这是波浪划分时最重要的“戒条”。事实上，如果不是这样，则会造成波浪理论的混乱。在现实世界，第３浪往往是３个推动浪中最长的。</span></p><p><span>第４浪不可以与第１浪重叠，除非其更大级别的波浪是倾斜三角形的第１浪或第５浪这也是一个“颠扑不破”的法则。如果允许重叠，那么可能意味着现实世界的“进步”是不可能的了。</span></p><p><span>水平三角形型态只允许出现在第４浪或Ｂ浪、Ｘ浪上，以３－３－３－３－３型态运行。</span></p><p><span>对于这个规则，我只能说在没有足够的证据认为它是错误的之前先认为它是对的。事实上，它对于读者划分波浪十分有用，因为至今，我还没有发现，第２浪也会以三角形的型态出现。</span></p><p><span>５浪进行的推动浪，会有两个浪具有相当的时间，大小也相同。若非如此，则具有０。６１８的比例。</span></p><p>&nbsp;</p><h4><a name="波浪理论的原理" class="md-header-anchor"></a><span>波浪理论的原理</span></h4><p><span>许多从事过波浪理论研究并在实际操作中付诸实施的投资者都曾会感到波浪理论不易领会，甚至望而生畏。波浪理论的基本原则其实很简单，读者在不久将会发现波浪理论涵盖的许多要点。看起来似曾相识，这是因为波浪理论的许多架构，相当符合道氏理论的原理和传统的图型技术。不过，波浪理论已超越传统的图型分析技术，能够针对市场的波动，提供全盘性的分析角度、得以解释特定的图形型态发展的原因与时机，以及图形本身所代表的意义，波浪理论同时也能够帮助市场分析师、找出市场循环周期的所在。 </span></p><p><span>曾经有人说过，多数的技术分析，在本质上是属于逐势分析。道氏理论，且不谈其所有的优点，也是在趋势形成之后，才出现确认的讯号，波浪理论则能更进一步的对头部与底部作出预警讯号，而且能以较传统的分析方法加以确认，在以下的章节，我们将重点指出波浪理论与较为人熟知的图型分析的两者之间的共同点。 </span></p><h5><a name="数浪的基本规则" class="md-header-anchor"></a><span>数浪的基本规则</span></h5><p><span>投资者应了解，艾略特的波浪理论其关键主要包括三个部分，第一，为波浪的形态；第二，为浪与浪之间的比例关系；第三，作为浪间的时间间距。而这三者之间，浪的形态最为重要。 </span></p><p><span>波浪的形态，是艾略特波浪理论的立论基础，所以，数浪的正确与否，对成功运用波浪理论进行投资时机的掌握至关重要。 所谓数浪的基本规则，只有两条。如果投资者能对这两条基本数浪规则在平时运用中坚守不移，可以说已经成功了一半。 </span></p><h5><a name="数浪的两条基本规则" class="md-header-anchor"></a><span>数浪的两条基本规则</span></h5><p><span> 一、第三浪（第三推动）永远不允许是第一至第五浪中最短的一个浪。在股价的实际走势中，通常第三浪是最具有爆炸性的一浪，也经常会成为最长的一个浪。</span></p><p><span> 二、第四个浪的底部，不可以低于第一个浪的浪顶。</span></p><p><span>除了以上两个在数浪时的铁律外，还有两个补充规则，这两个补充规则并非是牢不可破的铁律,它主要是帮助投资者能更好的判别浪型,协助正确数浪工作。 </span></p><p><span> </span></p><p><strong><span>补充规则一：交替规则</span></strong></p><p><span>如果在整个浪形循环中，第二个浪以简单的形态出现，则第四浪多数会以较为复杂的形态出现。第二浪和第四浪就性质而言，都属于逆流行走的调整浪，而调整浪的形态有许许多多种子类型。这条补充规则，能较好地帮助投资者分析和推测市场价格的未来发展和变化，从而把握住出入的时机。 </span></p><p><strong><span>补充规则二</span></strong></p><p><span>股市在上升一段后进入调整期，尤其是当调整浪乃属于第四浪的时候，多数会在较低一级的第四浪内完成。通常性情况下，会在接近终点附近完结。这条补充规则主要是为投资者提供调整的终结点，从而使投资者了解在调整临近终结时，应注意做多、做空时的策略。不使投资者操作犯方向性的大错，铸成不可逆转的局面。 </span></p><p><strong><span>第一浪</span></strong></p><p><span>在整个波浪循环开始后，一般市场上大多数投资者并不会马上就意识到上升波段已经开始。所以，在实际走势中，大约半数以上的第一浪属于修筑底部形态的一部分。由于第一浪的走出一般产生于空头市场后的末期，所以，市场上的空头气氛以及习惯于空头市场操作的手法未变，因此，跟随着属于筑底一类的第一浪而出现的第二浪的下调幅度，通常都较大。 </span></p><p><strong><span>第二浪</span></strong></p><p><span>上面已经提过，通常第二浪在实际走势中调整幅度较大，而且还具有较大的杀伤力，这主要是因为市场人士常常误以为熊市尚未结束，第二浪的特点是成交量逐渐萎缩，波动幅度渐渐变窄，反映出抛盘压力逐渐衰竭，出现传统图形中的转向形态，例如常见的头肩、双底等。 </span></p><p><strong><span>第三浪</span></strong>
+<span>第三浪在绝大多数走势中，属于主升段的一大浪，因此，通常第三浪属于最具有爆炸性的一浪。它的最主要的特点是：第三浪的运行时间通常会是整个循环浪中的最长的一浪，其上升的空间和幅度亦常常最大；第三浪的运行轨迹，大多数都会发展成为一涨再涨的延升浪；在成交量方面，成交量急剧放大，体现出具有上升潜力的量能；在图形上，常常会以势不可挡的跳空缺口向上突破，给人一种突破向上的强烈讯号。 </span></p><p><strong><span>第四浪</span></strong></p><p><span>从形态的结构来看，第四浪经常是以三角形的调整形态进行运行。第四浪的运行结束点，一般都较难预见。同时，投资者应记住，第四浪的浪底不允许低于第一浪的浪顶。 </span></p><p><strong><span>第五浪</span></strong></p><p><span>在股票市场中，第五浪是三大推动浪之一，但其涨幅在大多数情况下比第三浪小。第五浪的特点是市场人气较为高涨,往往乐观情绪充斥整个市场。从其完成的形态和幅度来看，经常会以失败的形态而告终。在第五上升浪的运行中，二、三线股会突发奇想，普遍上升，而常常会升幅极其可观。 </span></p><p><strong><span>A浪</span></strong></p><p><span>在上升循环中，A浪的调整是紧随着第五浪而产生的，所以，市场上大多数人士会认为市势仍未逆转，毫无防备之心，只看作为一个短暂的调整。A浪的调整形态通常以两种形式出现，平坦型形态与三字形形态，它与B浪经常以交叉形式进行形态交换。 </span></p><p><strong><span>B浪</span></strong></p><p><span>B浪的上升常常会作为多方的单相思，升势较为情绪化，这主要是市场上大多数人仍未从牛市冲天的市道中醒悟过来，还以为上一个上升尚未结束，在图表上常常出现牛市陷阱，从成交量上看，成交稀疏，出现明显的价量背离现象，上升量能已接济不上。 </span></p><p><strong><span>C浪</span></strong></p><p><span>紧随着B浪而后的是C浪，由于B浪的完成顿使许多市场人士兵醒悟，一轮多头行情已经结束，期望继续上涨的希望彻底破灭，所以，大盘开始全面下跌，从性质上看，其破坏力较强。</span></p><p>&nbsp;</p><p><span>（一）0.382：第四浪常见的回吐比率及部分第二浪的回吐百分比，B浪的回吐过程（ABC浪以之字形运行）； </span></p><p><span>（二）0.618：大部分第二浪的调整深度。对于ABC浪以之字形出现时，B浪的调整比率。第五浪的预期目标与0.618有关。三角形内的浪浪之音质比例由0.618来维系； </span></p><p><span>（三）0.5：0.5是0.382与0.618之间的中间数，作为神奇数比率的补充。对于ABC之字型调整浪，B浪的调整幅度经常会由0.5所维系。 </span></p><p><span>（四）0.236：是由0.382与0.618两神奇数字比率相乘派生出来的比率值。有时会作为第三浪或第四浪的回吐比率，但一般较为少见，常常是在事后才如梦初醒，调整过程已经结束； </span></p><p><span>（五）1.236与1.382：对于ABC不规则的调整形态，我们可以利用B浪与A浪的关系，借助1.236与1.382两神奇比例数字来预估B浪的可能目标值； </span></p><p><span>（六）1.618：由于第三浪在三个推动浪中多数为最长一浪，以及大多数C 浪极具破坏力。所以，我们可以利用1.618来维系第一浪与第三浪的比例关系和C 浪与A浪的比例关系； 对于斐波南希神奇系列数字，读者已经了解到在波浪理论中，尤其在对波浪理论的定量分析中，起着极其重要的作用。其中0.382与0.618为常用的两个神奇数字比率。其使用频率较其它的比率要高得多。 </span></p><h4><a name="波浪理论的几个基本要点" class="md-header-anchor"></a><span>波浪理论的几个基本要点</span></h4><p><span>1、一个完整的循环包括八个波浪，五上三落。</span></p><p><span>2、波浪可合并为高一级的浪，亦可以再分割为低一级的小浪。 </span></p><p><span>3、跟随主流行走的波浪可以分割为低一级的五个小浪。 </span></p><p><span>4、１、３、5三个波浪中，第３浪不可以是最短的一个波浪。</span></p><p><span>5、假如三个推动浪中的任何一个浪成为延伸浪，其余两个波浪的运行时间及幅度会趋一致。 </span></p><p><span>6、调整浪通常以三个浪的形态运行。</span></p><p><span>7、黄金分割率奇异数字组合是波浪理论的数据基础。 </span></p><p><span>8、经常遇见的回吐比率为0.382、0.5及0.618。</span></p><p><span>9、第四浪的底不可以低于第一浪的顶。 </span></p><p><span>10、波浪理论包括三部分：型态、比率及时间，其重要性以排行先后为序。</span></p><p><span>11、波浪理论主要反映群众心理。越多人参与的市场，其准确性越高。</span></p><h4><a name="波浪理论的缺陷" class="md-header-anchor"></a><span>波浪理论的缺陷</span></h4><p><span>1、波浪理论家对现象的看法并不统一。每一个波浪理论家，包括艾略特本人，很多时都会受一个问题的困扰，就是一个浪是否已经完成而开始了另外一个浪呢？有时甲看是第一浪，乙看是第二浪。差之毫厘，失之千里。看错的后果却可能十分严重。一套不能确定的理论用在风险奇高的股票市场，运作错误足以使人损失惨重。 </span></p><p><span>2、甚至怎样才算是一个完整的浪，也无明确定义，在股票市场的升跌次数绝大多数不按五升三跌这个机械模式出现。但波浪理论家却曲解说有些升跌不应该计算入浪里面。数浪（WaveCount）完全是随意主观 </span></p><p><span>3、波浪理论有所谓伸展浪（ExtensionWaves），有时五个浪可以伸展成九个浪。但在什么时候或者在什么准则之下波浪可以伸展呢？艾略特却没有明言，使数浪这回事变成各自启发，自己去想。 </span></p><p><span>4、波浪理论的浪中有浪，可以无限伸延，亦即是升市时可以无限上升，都是在上升浪之中，一个巨型浪，一百几十年都可以。下跌浪也可以跌到无影无踪都仍然是在下跌浪。只要是升势未完就仍然是上升浪，跌势未完就仍然在下跌浪。这样的理论有什么作用？能否推测浪顶浪底的运行时间甚属可疑，等于纯粹猜测。 </span></p><p><span>5、艾略特的波浪理论是一套主观分析工具，毫无客观准则。市场运行却是受情绪影响而并非机械运行。波浪理论套用在变化万千的股市会十分危险，出错机会大于一切。 6、波浪理论不能运用于个股的选择上。</span></p></div>
+</body>
+</html>
