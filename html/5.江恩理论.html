@@ -1,0 +1,509 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>5.江恩理论</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n13"><a class="md-toc-inner" href="#一-江恩理论介绍">一 江恩理论介绍</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n15"><a class="md-toc-inner" href="#1-江恩理论概述">1 江恩理论概述</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n18"><a class="md-toc-inner" href="#2-遭受重大损失的三大原因">2 遭受重大损失的三大原因</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n23"><a class="md-toc-inner" href="#二-江恩十二条买卖规则">二 江恩十二条买卖规则</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n25"><a class="md-toc-inner" href="#1-十二条买卖规则">1 十二条买卖规则</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n67"><a class="md-toc-inner" href="#2-十二条买卖规则的简化">2 十二条买卖规则的简化</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n121"><a class="md-toc-inner" href="#根据趋势买卖">根据趋势买卖</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n125"><a class="md-toc-inner" href="#1时间决定市势的趋向">1)时间决定市势的趋向</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n134"><a class="md-toc-inner" href="#2用幅度决定市势的趋向">2)用幅度决定市势的趋向</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n147"><a class="md-toc-inner" href="#根据价格形态买卖">根据价格形态买卖</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n148"><a class="md-toc-inner" href="#1在单底双底或三底买入">1)在单底，双底或三底买入 </a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n158"><a class="md-toc-inner" href="#2根据百分比买卖">2)根据百分比买卖</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n178"><a class="md-toc-inner" href="#3市场分段运行">3)市场分段运行</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n190"><a class="md-toc-inner" href="#4）利用五至七点波动买卖">4）利用五至七点波动买卖</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n198"><a class="md-toc-inner" href="#5）最安全的买卖点">5）最安全的买卖点</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n225"><a class="md-toc-inner" href="#根据成交量买卖">根据成交量买卖</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n237"><a class="md-toc-inner" href="#三-江恩21条操作守则">三 江恩21条操作守则</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n261"><a class="md-toc-inner" href="#四-操盘手建仓八大铁律">四 操盘手建仓八大铁律</a></span></p></div><p><a href='#一-江恩理论介绍'><span>一.江恩理论介绍</span></a></p><p><span>	</span><a href='#1-江恩理论概述'><span>1.江恩理论概述</span></a></p><p><span>	</span><a href='#2-遭受重大损失的三大原因'><span>2.遭受重大损失的三大原因</span></a></p><p><a href='#二-江恩十二条买卖规则'><span>二.江恩十二条买卖规则</span></a></p><p><span>	</span><a href='#1-十二条买卖规则'><span>1.十二条买卖规则</span></a></p><p><span>	</span><a href='#2-十二条买卖规则的简化'><span>2.十二条买卖规则的简化</span></a></p><p><span>		</span><a href='#根据趋势买卖'><span>根据趋势买卖</span></a></p><p><span>		</span><a href='#根据价格形态买卖'><span>根据价格形态买卖</span></a></p><p><span>		</span><a href='#根据成交量买卖'><span>根据成交量买卖</span></a></p><p><a href='#三-江恩21条操作守则'><span>三.江恩21条操作守则</span></a></p><p><a href='#四-操盘手建仓八大铁律'><span>四.操盘手建仓八大铁律</span></a></p><h4><a name="一-江恩理论介绍" class="md-header-anchor"></a><span>一 江恩理论介绍</span></h4><p><span>江恩是20世纪最伟大的证券交易巨斧，提到江恩，全世界金融业者都充满了崇拜之情。江恩创立的证券分析理论和方法，因测市准确度极高而受到不同地区投资者的广泛关注。蒋义行、陶暐拟编著的《江恩理论解析与实战应用十六讲》以中国股市诠释江恩理论，把深奥的江恩理论系统地汇集起来，以通俗易懂的文字及大量的沪深股市图例进行解析，帮助读者准确全面地理解江恩理论，以江恩理论分析中国股市，探索中国股市运行轨迹背后的实质，指出其规律和实用有效的分析方法。书中附有大量的根据江恩理论原理计算出的沪深股市统计数据,从中可以看出沪深股市许多规律性的东西。《江恩理论解析与实战应用十六讲》从入门到精通，有思想有方法，有理论有实例，是学习江恩理论的经典著作。</span></p><h5><a name="1-江恩理论概述" class="md-header-anchor"></a><span>1 江恩理论概述</span></h5><p><span>1）江恩理论以研究测市为主，实质是在看似无序的市场中建立了严格的交易秩序；</span></p><p><span>2）建立了江恩时间法则，江恩价格法则，江恩线等。用来发现何时价格会发生回调和将回调到什么价位，博大精深。 　　</span></p><h5><a name="2-遭受重大损失的三大原因" class="md-header-anchor"></a><span>2 遭受重大损失的三大原因</span></h5><p><span>1）过度买卖</span></p><p><span>2）没有设立止损点</span></p><p><span>3）缺乏市场知识 　　</span></p><p>&nbsp;</p><h4><a name="二-江恩十二条买卖规则" class="md-header-anchor"></a><span>二 江恩十二条买卖规则</span></h4><p><span>	</span><span>江恩在1949年出版了他最后一本重要著作《在华尔街45年》，此时江恩已是72岁高龄，他坦诚地披露了纵横市场数十年的取胜之道。其中江恩十二条买卖规则是江恩操作系统的重要组成部分，江恩在操作中还制定了二十一条买卖守则，江恩严格地按照十二条买卖规则和二十一条买卖守则进行操作。 </span></p><h5><a name="1-十二条买卖规则" class="md-header-anchor"></a><span>1 十二条买卖规则</span></h5><figure><table><thead><tr><th><span>序号</span></th><th><span>规则</span></th></tr></thead><tbody><tr><td><span>一</span></td><td><span>决定趋势</span></td></tr><tr><td><span>二</span></td><td><span>在单底，双底或三底水平入市买入</span></td></tr><tr><td><span>三</span></td><td><span>根据市场波动的百分比买卖</span></td></tr><tr><td><span>四</span></td><td><span>根据三星期上升或下跌买卖</span></td></tr><tr><td><span>五</span></td><td><span>市场分段波动</span></td></tr><tr><td><span>六</span></td><td><span>根据五或七点上落买卖</span></td></tr><tr><td><span>七</span></td><td><span>成交量</span></td></tr><tr><td><span>八</span></td><td><span>时间因素</span></td></tr><tr><td><span>九</span></td><td><span>当出现高低底或新高时买入</span></td></tr><tr><td><span>十</span></td><td><span>决定大市趋势的转向</span></td></tr><tr><td><span>十一</span></td><td><span>最安全的买卖点</span></td></tr><tr><td><span>十二</span></td><td><span>快速市场得价位滚动</span></td></tr></tbody></table></figure><p>&nbsp;</p><h5><a name="2-十二条买卖规则的简化" class="md-header-anchor"></a><span>2 十二条买卖规则的简化</span></h5><figure><table><thead><tr><th><strong><span>根据趋势买卖</span></strong></th><th>&nbsp;</th></tr></thead><tbody><tr><td>&nbsp;</td><td><span>一、决定趋势</span></td></tr><tr><td>&nbsp;</td><td><span>十、决定大市趋势的转向</span></td></tr><tr><td><strong><span>根据形态买卖</span></strong></td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><span>二 、在单底，双底或三底水平入市买入</span></td></tr><tr><td>&nbsp;</td><td><span>三、根据市场波动的百分比买卖</span></td></tr><tr><td>&nbsp;</td><td><span>五、市场分段波动</span></td></tr><tr><td>&nbsp;</td><td><span>六、根据五或七点上落买卖</span></td></tr><tr><td>&nbsp;</td><td><span>十一、最安全的买卖点</span></td></tr><tr><td><strong><span>根据价格、时间买卖</span></strong></td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><span>四、根据三星期上升或下跌买卖</span></td></tr><tr><td>&nbsp;</td><td><span>八、时间因素</span></td></tr><tr><td>&nbsp;</td><td><span>九、当出现高低滴或新高时买入</span></td></tr><tr><td><strong><span>根据成交量买卖</span></strong></td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><span>七、成交量</span></td></tr><tr><td><strong><span>根据价格变化速率买卖</span></strong></td><td>&nbsp;</td></tr><tr><td>&nbsp;</td><td><span>十二、快速市场得价位滚动</span></td></tr></tbody></table></figure><p>&nbsp;</p><h5><a name="根据趋势买卖" class="md-header-anchor"></a><span>根据趋势买卖</span></h5><p><strong><span>决定趋势</span></strong></p><p><span>决定趋势最为重要，对于股票而言，平均综合指数最为重要，决定大市的趋势。分类指数对于市场的趋势亦有相当启示性。江恩建议分析者使用一种特殊的图表方法，三天图及九点平均波动图。 </span></p><p>&nbsp;</p><h6><a name="1时间决定市势的趋向" class="md-header-anchor"></a><span>1)时间决定市势的趋向</span></h6><p><span>三天的最低水平下破，则表示市场会向下，当三天的最高水平上破，则表示市场会出现新高。 </span></p><p><span>恒生指数三天图 </span></p><p><img src="../picture/image-20200317233010280.png" referrerpolicy="no-referrer" alt="image-20200317233010280"></p><p><span>绘画方法上，可按照以下步骤： </span></p><p><span>1) 当市场从低位上升，连续三天出现较高的底位及高位，图表上的线应移至第三天的高点。若市场下跌两天后第三天再创新高，则图表上的线应垂直上移至当天的高点。</span></p><p><span>2) 当市场连续三天创新低时，图表的线便可下移至第三天低位的水平，若市场继续下跌，则可将图表上的线垂直下移至当天的低点。</span></p><p><span>3) 若市场连续三天创新高点，则“三天图”表便可回升。  </span></p><p>&nbsp;</p><h6><a name="2用幅度决定市势的趋向" class="md-header-anchor"></a><span>2)用幅度决定市势的趋向</span></h6><p><span>上升市回档跌幅超过九点，可能转势下行；下跌市，反弹超过九点，可能转势上行。</span></p><p><span>恒生指数九点图，每单位等于10点 </span></p><p><img src="../picture/image-20200317234115471.png" referrerpolicy="no-referrer" alt="image-20200317234115471"></p><p>&nbsp;</p><p><span>&quot;九点平均波动图&quot;的规则是： </span></p><p><span>若市场在下跌的市道中，市场反弹低于9点，表示反弹乏力。超过9点，则表示市场可能转势，在10点之上，则市势可能反弹至20点，超过20点的反弹出现，市场则可能进一步反弹至30至31点，市场很少反弹超过30点的。</span></p><p><span>对于上升的市道中，规则亦一样。 </span></p><p>&nbsp;</p><p><span>江恩上述图表有几个特点需要注意：</span></p><p><span>1) 江恩的“三天图”是以时间决定市势的趋向，“九点图”则以价位上落的幅度决定市势的走向，双剑合壁。 </span></p><p><span> 2) 江恩的九点图，以统计为基础，实际应用“九点图”时，分析者必先了解所分析的市场，所取的幅度应以超过平均上落幅度50%为佳。 </span></p><p>&nbsp;</p><h5><a name="根据价格形态买卖" class="md-header-anchor"></a><span>根据价格形态买卖</span></h5><h6><a name="1在单底双底或三底买入" class="md-header-anchor"></a><span>1)在单底，双底或三底买入 </span></h6><p><span>江恩第二条买卖规则十分简单，当市场接近从前的底部，顶部或重要阻力水平时，根据单底，双底或三底形式入市买卖。</span></p><p><img src="../picture/image-20200317235214369.png" alt="image-20200317235214369" style="zoom:67%;" /></p><p>&nbsp;</p><p><span>（1）市场从前的底部是重要的支持位，可入市吸纳。</span></p><p><span>（2）当突破从前的顶部时，则阴力成为支持，当市价回落至该顶部水平或稍低于该水平，都是重要的买入时机。</span></p><hr /><p><img src="../picture/image-20200318000350236.png" alt="image-20200318000350236" style="zoom:67%;" /></p><p><span>       相反而言，当市场到达从前顶部，并出现单顶，双顶以至三顶，都是沽空的时机。此外，当市价下破从前的顶部，之后市价反弹回试该从前顶部的水平，都是沽空的时机。 </span></p><p>&nbsp;</p><h6><a name="2根据百分比买卖" class="md-header-anchor"></a><span>2)根据百分比买卖</span></h6><p><img src="../picture/image-20200318000516953.png" referrerpolicy="no-referrer" alt="image-20200318000516953"></p><p><span>第三条买卖规则，乃是根据百分比买卖。江恩认为，只要顺应市势，有两种入市买卖的方法： </span></p><p><span>1) 若市况在高位回吐50%，是一个买入点。 </span></p><p><span>2) 若市况在底位上升50%，是一个沽出点。</span></p><hr /><p><img src="../picture/image-20200318000745220.png" alt="image-20200318000745220" style="zoom:67%;" /></p><p><span>此外，一个市场顶部或底部的百分比水平往往成为市场的重要支持或阻力位，以下几个百分比水平值得特别留意。 1) 3~5%</span></p><p><span>2) 10~12%</span></p><p><span>3) 20~25%</span></p><p><span>4) 33~37% </span></p><p><span>5) 45~50%</span></p><p><span>6) 62~67%</span></p><p><span>7) 72~78%</span></p><p><span>8) 85~87% </span></p><p><span>在众多个百分比之中，50%，100%以及100%的倍数皆为市场重要的支持或阻力水平。</span></p><hr /><p><span>不过投资者要特别留意，若市场出现第四个底或第四个顶时，便不是吸纳或沽空的电动机，根据江恩的经验，市场四次到顶而上破，或四次到底而下破的机会会十分大。 </span></p><p><img src="../picture/image-20200318001358757.png" alt="image-20200318001358757" style="zoom:67%;" /></p><p>&nbsp;</p><h6><a name="3市场分段运行" class="md-header-anchor"></a><span>3)市场分段运行</span></h6><p><span>在升市中，市场通常会分为三段甚至四段上升的。在下跌趋势中，市场亦会分三段，甚至四段浪下跌的。   </span></p><p><span>当上升趋势开始时，永远不要以为市场只有一浪上升便见顶，通常市场会上升，调整，上升，调整，然后再上升一次才可能走完整个趋势；反之，在下跌的趋势中亦一样。</span></p><p><span>江恩这个对市场走势的看法与艾略特的波浪理论的看法十分接近。不过，对于一个趋势中究该应该有多少段浪，江恩没有艾略特般硬性规定下来，江恩认为在某些市场趋势中，可能会出现四段浪。 </span></p><p>&nbsp;</p><p><span>究竟如何去处理江恩与艾略特之间的不同看法呢？一般认为有三种可能：</span></p><p><span>1) 所多出的一段浪可能是低一级不规则浪的b浪。 (左)</span></p><p><span>2) 所多出的一段浪可能是形态较突出的延伸浪中一个。 （中）</span></p><p><span>3) 所多出的一段浪可能是调整浪中的不规则b浪。  （右）</span></p><p>&nbsp;</p><p><img src="../picture/image-20200318001836079.png" referrerpolicy="no-referrer" alt="image-20200318001836079"></p><p>&nbsp;</p><h6><a name="4）利用五至七点波动买卖" class="md-header-anchor"></a><span>4）利用五至七点波动买卖</span></h6><p><span>1) 若趋势上升，则当市场出现5至7点的调整时，可趁低吸纳，通常情况下，市场调整不会超过9至10点。 </span></p><p><span>2) 若趋势向下，则当市场出现5至7点的反弹时，可趁高沽空。 </span></p><p><span>3) 在某些情况下，10至12点的反弹或调整，亦是入市的机会。 </span></p><p><span>4) 若市场由顶部或底部反弹或调整18至21点水平时，投资者要小心市场可能出现短期市势逆转。 </span></p><p><span>江恩的买卖规则有普遍的应用意义，他并没有特别指明是何种股票或哪一种金融工具，亦没有特别指出哪一种程度的波幅。这种分析金融市场的方法是十分特别的。 </span></p><p><img src="../picture/image-20200319204447597.png" referrerpolicy="no-referrer" alt="image-20200319204447597"></p><p>&nbsp;</p><h6><a name="5）最安全的买卖点" class="md-header-anchor"></a><span>5）最安全的买卖点</span></h6><p><span>在市场获利，除了能够正确分析市场走势外，出入市的策略亦是极为重要的，若出入市不得法，投资者即使看对市仍不免招致损失。  </span></p><p><img src="../picture/image-20200319204731443.png" alt="image-20200319204731443" style="zoom:67%;" /></p><p><span>  市场上破之前高点，是安全买入点；市场下破之前低点，是安全沽出点。 </span></p><p>&nbsp;</p><p><span>江恩对于跟随趋势买卖，有以下的忠告：</span></p><p><span>1） 当市势向上的时候，追买的价位永远不是太高。 </span></p><p><span>2） 当市势向下的时候，追沽的价位永远不是太低。 </span></p><p><span>3） 在投资时紧记使用止蚀盘以免招巨损。 </span></p><p><span>4） 顺势买卖，切忌逆势。 </span></p><p><span>5） 在投资组合中，使用去弱留强的方法维持获利能力。 </span></p><p><span>根据江恩的研究，在一个快速的趋势中，市价逆市反弹或调整，通常只会出现两天，是一个判断市势的有效方法。 </span></p><p>&nbsp;</p><p><strong><span>江恩回调法则</span></strong><span> </span></p><p><span>回调是指价格在主运动趋势中的暂时的反转运动。回调理论是江恩价格理论中重要的一部分。 </span></p><p><span>根据价格水平线的概念，50%、75%、100%作为回调位置是对价格运动趋势的构成强大的支持或阻力。 </span></p><p><span>例如：某只股票价格从40元最高点下降到20元最低点开始反转，价格带的空间是40元减去20元为20元。这一趋势的50%为10元，即上升到30元时将回调。而30元与20元的价格带的50%为5元，即回调到25元时再继续上升。升势一直到40元与20元的75%，即35元再进行50%的回调，最后上升到40元完成对前一个熊市的100%回调。 </span></p><p><span>那么，如何判断峰顶与峰底呢？江恩认为一年中只做几次出色的交易就可以了，为此，需要观察以年为单位的价格图，来决定一年中的顶步与底部，然后才是月线图、周线图和日线图。 </span></p><p>&nbsp;</p><p><strong><span>江恩50%回调法</span></strong><span>   </span></p><p><span>江恩50%回调法则是基于江恩的50%回调或63%回调概念之上。 </span></p><p><span>江恩认为：不论价格上升或下降，最重要的价位是在50%的位置，在这个位置经常会发生价格的回调，如果在这个价位没有发生回调，那么，在63%的价位上就会出现回调。 </span></p><p><span>在江恩价位中，50%、63%、100%最为重要，他们分别与几何角度45度、63度和90度相对应，这些价位通常用来决定建立50%回调带。 </span></p><p><span>投资者计算50%回调位的方法是：将最高价和最低价之差除以2，再将所得结果加上最低价或从最高价减去。 </span></p><p><span>当然，价格的走势是难以预测的，我们在预测走势上应该留有余地，实际价格也许高于也许低于50%的预测。 江恩投资实战技法适合于各种时间尺度的图表，包括5分钟图、日线图、周线图、月线图和年线图。 </span></p><p><span>江恩投资实战技法适合于各种时间尺度的图表，包括5分钟图、日线图、周线图、月线图和年线图。 </span></p><p>&nbsp;</p><h5><a name="根据成交量买卖" class="md-header-anchor"></a><span>根据成交量买卖</span></h5><p><span>市场成交量 </span></p><p><span>第一，当市场接近顶部的时候，成交量经常大增，大成交量经常伴着市场顶部出现。 </span></p><p><span>第二，当市场一直下跌，而成交量续渐缩减的时候，则表示市场抛售力量已近尾声，投资者套现的活动已近完成，市场底部随即出现，而市价反弹亦指日可待。 </span></p><p><span>在利用成交量分析市场趋势逆转时，须结合以下因素分析。</span></p><p><span>1) 时间周期——成交量的分析必须配合市场的时间周期，否则收效减弱。 </span></p><p><span>2) 支持、阻力位——市场到达重要支持阻力位，成交量的表现配合见顶或见底的状态，市势逆转的机会增加。 </span></p><p>&nbsp;</p><p><strong><span>成交量有助于决定市场见顶或见底。大成交量通常表示见顶，低成交量通常表示见底。</span></strong><span>    </span></p><p><img src="../picture/image-20200319211832861.png" alt="image-20200319211832861" style="zoom:67%;" /></p><p><img src="../picture/image-20200319220110083.png" alt="image-20200319220110083" style="zoom: 67%;" /></p><p>&nbsp;</p><h4><a name="三-江恩21条操作守则" class="md-header-anchor"></a><span>三 江恩21条操作守则</span></h4><p><span>买卖规则重于预测！ 这就是江恩获胜的真正秘诀</span></p><p><span>１、每次入市买、卖，损失不应超过资金的十分之一。 </span></p><p><span>２、永远都设立止损位，减少买卖出错时可能造成的损失。 </span></p><p><span>３、永不过量买卖。 </span></p><p><span>４、永不让所持仓位转盈为亏。 </span></p><p><span>５、永不逆市而为。市场趋势不明显时，宁可在场外观望。 </span></p><p><span>６、有怀疑，即平仓离场。入市时要坚决，犹豫不决时不要入市。 </span></p><p><span>７、只在活跃的市场买卖。买卖清淡时不宜操作。 </span></p><p><span>８、永不设定目标价位出入市，避免限价出入市，而只服从市场走势。 </span></p><p><span>９、如无适当理由、不将所持仓平盘，可用止赚位保障所得利润。 </span></p><p><span>１０、在市场连战皆捷后，可将部分利润提取，以备急时之需。 </span></p><p><span>１１、买股票切忌只望分红收息。（赚市场差价第一） </span></p><p><span>１２、买卖遭损失时，切忌赌徒式加码，以谋求摊低成本。 </span></p><p><span>１３、不要因为不耐烦而入市，也不要因为不耐烦而平仓。 </span></p><p><span>１４、肯输不肯赢，切戒。赔多赚少的买卖不要做 </span></p><p><span>１５、入市时落下的止损位，不宜胡乱取消。 </span></p><p><span>１６、做多错多，入市要等候机会，不宜买卖太密。 </span></p><p><span>１７、做多做空自如，不应只做单边。 </span></p><p><span>１８、不要因为价位太低而吸纳，也不要因为价位太高而沽空。 </span></p><p><span>１９、永不对冲。 </span></p><p><span>２０、尽量避免在不适当时搞金字塔加码。 </span></p><p><span>２１、如无适当理由，避免胡乱更改所持股票的买卖策略。 </span></p><p>&nbsp;</p><h4><a name="四-操盘手建仓八大铁律" class="md-header-anchor"></a><span>四 操盘手建仓八大铁律</span></h4><p><span>1、永远要分批建仓，不得满仓操作。</span></p><p><span>2、第一仓位不得超过总资金的30%。</span></p><p><span>3、不得在连续上涨超过15%的点位追高建仓。</span></p><p><span>4、第一仓位如果亏损不得加仓，盈利后方可逢低加仓，且亏损超过10%必须止损。</span></p><p><span>5、若盈利超过20%，加仓比例不得超过总资金的30%。</span></p><p><span>6、仓位资金获利20%以上后，仓位才能超过80%。</span></p><p><span>7、永远不要逆市建仓和加仓。</span></p><p>&nbsp;</p><p><span>1、同一账户5000万以下资金持仓不得超过3支股票。</span></p><p><span>2、建仓资金获利未超过10%，不得进行高抛低吸。</span></p><p><span>3、每次高抛低吸资金不得超过已建仓位的20%。</span></p><p><span>4、波段持有，趋势不破，不得平仓，让利润奔跑。</span></p><p><span>5、永远不要一次性平仓，除非出现系统性风险。</span></p><p><span>6、永远不要抛出加速上涨的股票，直至出现明显滞涨为止。</span></p><p><span>7、突发事件，冷静处理。</span></p><p><span>8、不得频繁换股，不得频繁操作。</span></p><p>&nbsp;</p><p><span>1、永远不要让总资金亏损超过10%。</span></p><p><span>2、上升趋势的阶段性调整，仓位不得超过50%。</span></p><p><span>3、每一单都要预先设好止损位，跌破止损位坚决止损。</span></p><p><span>4、永远不要去主观预测市场，一定要客观顺应市场。</span></p><p><span>5、大盘为重，个股为轻，有80%以上获利概率方可入市。</span></p><p><span>6、上涨空间有30%以上可能性，方可介入。</span></p><p><span>7、不得参与高位出货股进行短线高风险操作。</span></p><p><span>8、资金就是生命，失去资金操盘生涯就此结束。</span></p></div>
+</body>
+</html>

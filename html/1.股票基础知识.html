@@ -1,0 +1,511 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>1.股票基础知识</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><h4><a name="content" class="md-header-anchor"></a><span>Content</span></h4><ol start='' ><li><a href='#股票起源'><span>股票起源</span></a></li><li><a href='#股票交易规则'><span>股票交易规则</span></a></li><li><a href='#股票开户'><span>股票开户</span></a><span>  </span></li><li><a href='#股票风险'><span>股票风险</span></a></li></ol><p>&nbsp;</p><h4><a name="股票起源" class="md-header-anchor"></a><span>股票起源  </span></h4><p><span>	</span><span>股票（stock）是股份公司发行的所有权凭证，是股份公司为筹集资金而发行给各个股东作为持股凭证并借以取得股息和红利的一种有价证券。每股股票都代表股东对企业拥有一个基本单位的所有权。每支股票的背后都会有一家上市公司。同时，每家上市公司都会发行股票。</span></p><p><span>	</span><span>同一类别的每一份股票所代表的公司所有权是相等的。每个股东所拥有的公司所有权份额的大小，取决于其持有的股票数量占公司总股本的比重。</span></p><p><span>	</span><span>股票是股份公司资本的构成部分，可以转让、买卖，是资本市场的主要长期信用工具，但不能要求公司返还其出资。</span></p><p><span>	</span><span>上海证券交易所、深圳证券交易所的成立标志着我国证券市场开始发展。1990年12月19日，上海证券交易所开业；1991年7月3日，深圳证券交易所正式开业。</span></p><p><span>	</span><span>中国证券市场作为一个新兴的高速成长的证券市场，在短短十几年的时间里取得了举世瞩目的成就。上海证券交易所、深圳证券交易所的交易和结算网络覆盖了全国各地。证券市场交易技术手段处于世界先进水平，法规体系逐步完善。全国统一的证券监管体制也已经建立。证券市场在促进国有企业改革、推动我国经济结构调整和技术进步方面发挥了突出的作用。</span></p><h6><a name="返回目录content" class="md-header-anchor"></a><a href='#content'><span>返回目录</span></a></h6><h4><a name="股票交易规则" class="md-header-anchor"></a><span>股票交易规则</span></h4><h5><a name="交易时间" class="md-header-anchor"></a><span>交易时间：</span></h5><p><span>每周一至周五,每天上午9:30至11:30,下午1:00至3:00。法定公众假期除外。</span></p><p><span>集合竞价：上午9：15——9：25　其中9：15——9：20可以撤单,9：20——9：25不能撤单,9：25以成交量最大的价格为开盘价。</span></p><p><span>连续竞价：上午9：30——11：30,　下午1：00——3：00</span></p><h5><a name="t＋1交易制度t为交易日当天）" class="md-header-anchor"></a><span>T＋1交易制度（T为交易日当天）</span></h5><p><span>	</span><span>股票买卖实行T＋1交易制度,即当天买的股票T＋1日才能卖出,当天卖的股票T＋1才能取出现金,但可以用卖出股票的钱买其它股票或新股交款。</span></p><p><span>	</span><span>因此,当天买入的股票,可用数量不变,第二个交易日才有相应变化,当天买入的权证,买入成交数量立刻加入可用数量。当天卖出的股票或权证,相应资金第二个交易日才是可取资金。</span></p><h5><a name="涨跌幅限制" class="md-header-anchor"></a><span>涨跌幅限制</span></h5><p><span>	</span><span>重组成功上市股票首日无涨跌幅限制,一般情况下涨跌幅限制为前一交易日收市价上下10%,即一个交易日最大振幅为20%,ST股票及*ST股票涨跌幅限制为前一交易日收市价上下5%,即一个交易日最大振幅为10%。</span>
+<span>​</span><span>	</span><span>股票涨（跌）幅价格＝股票前一日收盘价格×10%（或5%）</span></p><h5><a name="成交顺序" class="md-header-anchor"></a><span>成交顺序</span></h5><p><span>价格优先——较高价格买进申报优先于较低价格买进申报,较低价格卖出申报优先于较高价格卖出申报； </span></p><p><span>时间优先——买卖方向、价格相同的,先申报者优先于后申报者。先后顺序按交易主机接受申报的时间确定。</span></p><h5><a name="委托规则" class="md-header-anchor"></a><span>委托规则</span></h5><p><span>1手=100股　　1—99股为零股　　不足1股为零碎股</span></p><p><span>买入委托必须为整百股（配股除外）,卖出委托可以为零股,但如为零股必须一次性卖出。股票停盘期间委托无效,买入委托不是整百股（配股除外）委托无效,委托价格超出涨跌幅限制委托无效。</span></p><h5><a name="股票交易费用" class="md-header-anchor"></a><span>股票交易费用</span></h5><h6><a name="买进费用" class="md-header-anchor"></a><span>买进费用：</span></h6><p><span>1.佣金0.2%-0.3%,根据你的证券公司决定,但是佣金最低收取标准是5元。比如你买了1000元股票,实际佣金应该是3元,但是不到5元都按照5元收取</span></p><p><span>2.过户费（仅仅限于沪市）。每一千股收取1元,就是说你买卖一千股都要交1元</span></p><p><span>3.通讯费。上海,深圳本地交易收取1元,其他地区收取5元 </span></p><h6><a name="卖出费用" class="md-header-anchor"></a><span>卖出费用：</span></h6><p><span>1.印花税0.1% (政府会根据经济情况调节)</span></p><p><span>2.佣金0.2%-0.3%,根据你的证券公司决定,但是佣金最低收取标准是5元。比如你了卖1000元股票,实际佣金应该是3元,但是不到5元都按照5元收取</span></p><p><span>3.过户费（仅仅限于沪市）。每一千股收取1元,就是说你买卖一千股都要交1元</span></p><p><strong><span>股票交易费用详细介绍</span></strong><span>　</span></p><p><span>	</span><span>股票交易费用是指投资者在委托买卖证券时应支付的各种税收和费用的总和,通常包括印花税、佣金、过户费、其他费用等几个方面的内容。</span></p><p><span>	</span><span>一、印花税。印花税是根据国家税法规定,在股票(包括Ａ股和Ｂ股)成交后对出让方按照规定的税率单边征收的税金。印花税的缴纳是由证券经营机构在同投资者交割中代为扣收,然后在证券经营机构同证券交易所或登记结算机构的清算交割中集中结算,最后由登记结算机构统一向征税机关缴纳。其收费标准是按Ａ股成交金额的1‰计收,基金、债券等均无此项费用。</span></p><p><span>	</span><span>二、佣金。佣金是指投资者在委托买卖证券成交之后按成交金额的一定比例支付给券商的费用。此项费用一般由券商的经纪佣金、证券交易所交易经手费及管理机构的监管费等构成。</span></p><p><span>	</span><span>三、过户费。过户费是指投资者委托买卖的股票、基金成交后买卖双方为变更股权登记所支付的费用。这笔收入属于证券登记清算机构的收入,由证券经营机构在同投资者清算交割时代为扣收。过户费的收费标准为：上海证券交易所Ａ股、基金交易的过户费为成交面额的 0.1 % ,起点 1 元；深圳证券交易所无过户费。</span></p><p><strong><span>代码规则</span></strong><span> </span></p><p><span>沪市股票买卖的代码是以600或601打头，如：运盛实业：股票代码是600767。中国国航：股票代码是601111。</span></p><p><span>深市A股票买卖的代码是以000打头，如：顺鑫农业：股票代码是000860。</span></p><p><span>沪市新股申购的代码是以730打头。如：中信证券：申购的代码是730030。</span></p><p><span>深市新股申购的代码与深市股票买卖代码一样，如：中信证券在深市市值配售代码是003030。  </span></p><p><span>中小板股票代码以002打头，如：东华合创股票代码是002065。 </span></p><p><span>创业板股票代码以300打头，如：探路者股票代码是：300005</span></p><h6><a name="返回目录content-n56" class="md-header-anchor"></a><a href='#content'><span>返回目录</span></a></h6><h4><a name="股票开户" class="md-header-anchor"></a><span>股票开户</span></h4><h5><a name="股票开户四步走" class="md-header-anchor"></a><span>股票开户四步走</span></h5><p>&nbsp;</p><p><span>	</span><span>第一步：股票开户,首先是选择营业部。目前,各家券商在交易系统方面,基本没有实质性的差别。因此,新股民在选择营业部时,可以考虑选择离家或者单位较近的营业部。选好营业部,接下来就是开户。大部分证券公司的开户时间为周一至周五早上9：00-11：30,下午1：00-3：00。当天开户,当天就可以取到账户。</span></p><p><span>	</span><span>第二步：股民想进入股市必须先开设股票账户。股票账户的开设需要交纳一定的手续费,目前收费标准为：上海股票账户40元/户,深圳股票账户50元/户。股民去开户时,应准备好90元的开户手续费,同时携带好本人身份证。到证券公司营业部后,去柜台索取《开户申请表》并按要求填写。填好后,将身份证、《开户申请表》以及手续费一起交给柜台承办人。承办人核查上述材料无误后,申请人便可收回自己的证件、手续费收据并领取股票账户卡。</span></p><p><span>	</span><span>第三步：股票账户开好后,证券公司将为每个股民开立资金账户,专门用于股票交易的资金结算。开立资金账户一般不会收费。新股民开立资金账户,首先需要到证券公司指定的银行开立一个活期存折,原来已有的活期存折仍然有效,在这个存折中存入若干人民币作为证券公司开设资金账户的保证金,金额多少由证券公司决定,也有些证券公司不要求预存款。接下来,股民需要把本人身份证、股票账户卡、活期存折交给证券公司营业部的开户柜台,与证券公司签署一式两份的《证券交易委托代理协议书》和《指定交易协议书》。在柜台人员将客户资料输入计算机后,股民为自己的账户设置好交易初始密码以及资金存取密码,开户手续就完成了。</span></p><p><span>	</span><span>第四步：股票开户后,还需要对今后自己采用的交易手段、资金存取方式进行选择,并与证券营业部签订相应的开通手续及协议。如果股民需要开通网上交易,则需要与证券公司签署《网上委托协议书》以及《风险揭示书》,并在个人电脑上下载开户的证券公司指定的网上交易软件。如果股民需要开通证券营业部银证转账业务, 则需要和证券公司、开户银行三方签署一式三份的 《××银行、××证券公司客户交易结算资金银行存管协议书》,并在三个工作日内携带本人身份证、活期存折以及《存管协议书》,到指定开户银行的营业网点柜台办理存管银行确认手续,建立存管关系,开通银证转账功能。</span>
+<span>　　</span></p><h5><a name="多少钱可以炒股" class="md-header-anchor"></a><span>多少钱可以炒股</span></h5><p><span>	</span><span>炒股先要开设一个证券帐户（深圳和上海一起开）,深圳证券账户卡：投资者可以通过所在地的证券营业部或证券登记机构办理,需提供本人有效身份证及复印件,委托他人代办的,还需提供代办人身份证及复印件。开户费用：免费。</span></p><p><span>	</span><span>在我国股市,买入股票有一个最低数量标准,就是1手。1手就是100股。也就是说最低要买入100股,多则是100股的整倍数。</span></p><h6><a name="返回目录content-n67" class="md-header-anchor"></a><a href='#content'><span>返回目录</span></a><span>　　</span></h6><h4><a name="股票风险" class="md-header-anchor"></a><span>股票风险</span></h4><p><span>	</span><span>股票涨跌幅10%。如果当天跌幅达到10%，并且有大单封死，那么当天则很有可能股票卖不出去，那么第二天有几大可能低开。甚至有的股票连续跌停，很短时间跌幅达到50%以上。</span></p><p><span>	</span><span>所以，炒股既要能够享受暴涨带来的快乐，也要能够承受暴跌带来的痛苦。</span></p><h6><a name="返回目录content-n71" class="md-header-anchor"></a><a href='#content'><span>返回目录</span></a><span>　　</span></h6></div>
+</body>
+</html>
