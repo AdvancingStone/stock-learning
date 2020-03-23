@@ -1,0 +1,535 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>11.量价理论及实盘解析</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n2"><a class="md-toc-inner" href="#成交量概述">成交量概述</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n4"><a class="md-toc-inner" href="#一-成交量的概念">一 成交量的概念</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n13"><a class="md-toc-inner" href="#二-成交量的表达形式">二 成交量的表达形式</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n20"><a class="md-toc-inner" href="#三-成交量变化的表现形式">三 成交量变化的表现形式</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n38"><a class="md-toc-inner" href="#量价关系">量价关系</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n41"><a class="md-toc-inner" href="#一-量价关系的主要表现">一 量价关系的主要表现</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n58"><a class="md-toc-inner" href="#二-量价关系的类型">二 量价关系的类型</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n140"><a class="md-toc-inner" href="#主力控盘各阶段量价分析">主力控盘各阶段量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n158"><a class="md-toc-inner" href="#一-吸筹量价分析">一 吸筹量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n162"><a class="md-toc-inner" href="#1-下跌卧底吸筹量价分析">1 下跌卧底吸筹量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n169"><a class="md-toc-inner" href="#2-震荡吸筹量价分析">2 震荡吸筹量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n178"><a class="md-toc-inner" href="#3-拉升吸筹量价分析">3 拉升吸筹量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n187"><a class="md-toc-inner" href="#二-启动量价分析">二 启动量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n190"><a class="md-toc-inner" href="#1-温和放量启动">1 温和放量启动</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n191"><a class="md-toc-inner" href="#2-突发放量启动">2 突发放量启动</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n192"><a class="md-toc-inner" href="#3-初升缩量后启动">3 初升缩量后启动</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n193"><a class="md-toc-inner" href="#三-洗盘量价分析">三 洗盘量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n194"><a class="md-toc-inner" href="#1-窄幅震荡洗盘量价分析">1 窄幅震荡洗盘量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n204"><a class="md-toc-inner" href="#2-宽幅震荡洗盘量价分析">2 宽幅震荡洗盘量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n206"><a class="md-toc-inner" href="#3-打压洗盘量价分析">3 打压洗盘量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n212"><a class="md-toc-inner" href="#四-拉升量价分析">四 拉升量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n215"><a class="md-toc-inner" href="#1-堆量快速拉升模式">1 堆量快速拉升模式</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n216"><a class="md-toc-inner" href="#2-缩量快速拉升模式">2 缩量快速拉升模式</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n223"><a class="md-toc-inner" href="#3-高成交量震荡推升模式">3 高成交量震荡推升模式</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n224"><a class="md-toc-inner" href="#4-低量缓步拉升模式">4 低量缓步拉升模式</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n245"><a class="md-toc-inner" href="#五-出货量价分析">五 出货量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n230"><a class="md-toc-inner" href="#1-快速拉升后横盘整理出货模式">1 快速拉升后横盘整理出货模式</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n233"><a class="md-toc-inner" href="#2-快速拉升后放量打压出货模式"> 2 快速拉升后放量打压出货模式</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n235"><a class="md-toc-inner" href="#3-快速拉升后缩量推升出货模">3 快速拉升后缩量推升出货模</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n237"><a class="md-toc-inner" href="#4-快速拉升后放量推升出货模">4 快速拉升后放量推升出货模</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n240"><a class="md-toc-inner" href="#六-试盘量价分析">六 试盘量价分析</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n241"><a class="md-toc-inner" href="#1-启动试盘后横盘整理模式">1 启动试盘后横盘整理模式</a></span><span role="listitem" class="md-toc-item md-toc-h6" data-ref="n243"><a class="md-toc-inner" href="#2-启动试盘后打压整理模式">2 启动试盘后打压整理模式</a></span></p></div><p><a href='#成交量概述'><span>成交量概述</span></a></p><p><span>	</span><a href='#一-成交量的概念'><span>成交量的概念</span></a></p><p><span>	</span><a href='#二-成交量的表达形式'><span>成交量的表达形式</span></a></p><p><span>	</span><a href='#三-成交量变化的表现形式'><span>成交量变化的表现形式</span></a></p><p><a href='#量价关系'><span>量价关系</span></a></p><p><span>	</span><a href='#一-量价关系的主要表现'><span>量价关系的主要表现</span></a></p><p><span>	</span><a href='#二-量价关系的类型'><span>量价关系的类型</span></a></p><p><a href='#主力控盘各阶段量价分析'><span>主力控盘各阶段量价分析</span></a></p><p><span>	</span><a href='#一-吸筹量价分析'><span>一 吸筹量价分析</span></a></p><p><span>		</span><a href='#1-下跌卧底吸筹量价分析'><span>1 下跌卧底吸筹量价分析</span></a></p><p><span>		</span><a href='#2-震荡吸筹量价分析'><span>2 震荡吸筹量价分析</span></a></p><p><span>		</span><a href='#3-拉升吸筹量价分析'><span>3 拉升吸筹量价分析</span></a></p><p><span>	</span><a href='#二-启动量价分析'><span>二 启动量价分析</span></a></p><p><span>		</span><a href='#1-温和放量启动'><span>1 温和放量启动</span></a></p><p><span>		</span><a href='#2-突发放量启动'><span>2 突发放量启动</span></a></p><p><span>		</span><a href='#3-初升缩量后启动'><span>3 初升缩量后启动</span></a></p><p><span>	</span><a href='#三-洗盘量价分析'><span>三 洗盘量价分析</span></a></p><p><span>		</span><a href='#1-窄幅震荡洗盘量价分析'><span>1 窄幅震荡洗盘量价分析</span></a></p><p><span>		</span><a href='#2-宽幅震荡洗盘量价分析'><span>2 宽幅震荡洗盘量价分析</span></a></p><p><span>		</span><a href='#3-打压洗盘量价分析'><span>3 打压洗盘量价分析</span></a></p><p><span>	</span><a href='#四-拉升量价分析'><span>四 拉升量价分析</span></a></p><p><span>		</span><a href='#1-堆量快速拉升模式'><span>1 堆量快速拉升模式</span></a></p><p><span>		</span><a href='#2-缩量快速拉升模式'><span>2 缩量快速拉升模式</span></a></p><p><span>		</span><a href='#3-高成交量震荡推升模式'><span>3 高成交量震荡推升模式</span></a></p><p><span>		</span><a href='#4-低量缓步拉升模式'><span>4 低量缓步拉升模式</span></a></p><p><span>	</span><a href='#五-出货量价分析'><span>五 出货量价分析</span></a></p><p><span>		</span><a href='#1-快速拉升后横盘整理出货模式'><span>1 快速拉升后横盘整理出货模式</span></a></p><p><span>		</span><a href='#2-快速拉升后放量打压出货模式'><span>2 快速拉升后放量打压出货模式</span></a></p><p><span>		</span><a href='#3-快速拉升后缩量推升出货模'><span>3 快速拉升后缩量推升出货模</span></a></p><p><span>		</span><a href='#4-快速拉升后放量推升出货模'><span>4 快速拉升后放量推升出货模</span></a></p><p><span>	</span><a href='#六-试盘量价分析'><span>六 试盘量价分析</span></a></p><p><span>		</span><a href='#1-启动试盘后横盘整理模式'><span>1 启动试盘后横盘整理模式</span></a></p><p><span>		</span><a href='#2-启动试盘后打压整理模式'><span>2 启动试盘后打压整理模式</span></a></p><p>&nbsp;</p><p><span>序幕：一个登山运动员登山之前的准备越充分那么登山越顺利，体能越好登山高度越高；地震爆发之前酝酿时间越长、累积能量越多爆发的震级越大，波及面越广、杀伤力也越大；乒乓球落地之前用力越猛弹跳越高；大坝蓄水越高，储存的势能越大，风险也越大，一旦溃堤释放的动能也越大，一泻千里的洪水将摧毁一切；陨石自遥远的太空而来，撞击地球的力度也越大；自然界的能量转化规律是如此，股市的量价关系也是如此，低位积累的动能越大，上涨的势能越高。相反，上涨势能越高，下跌的动能也越大。量、价是市场的两个最基本的元素，二者相互影响、相互依存、相互验证。</span></p><h4><a name="成交量概述" class="md-header-anchor"></a><span>成交量概述</span></h4><h5><a name="一-成交量的概念" class="md-header-anchor"></a><span>一 成交量的概念</span></h5><p><span>1、成交量：是指单位时间内股票交易市场或个股买卖的交易总量。</span></p><p><span>2、每一次买卖双方以相同的价格成交只能算一笔成交量，以买方价格成交的统计在内盘，以卖方价格成交的统计在外盘。</span></p><p><span>3、成交量的大小反映了多空双方对当前价格的认同程度，成交量大表明多空双方分歧大，成交量小表明多空双方分歧小。</span></p><p><span>4、成交量的大小可以反映市场或个股的交易活跃程度，根据不同位置的成交量的变化来判断主力的动向，从而做出自己的买卖决策。</span></p><p><span>5、成交量是股票市场的原动力，没有成交量的配合，股价如同无本之木，是投资者必须掌握的技能之一。</span></p><p><span>6、成交量不是孤立存在的，单一研究成交量没有任何意义，必须结合股价、时间、空间进行综合分析，才能得出相对正确的结论。</span>
+<span>　　</span></p><h5><a name="二-成交量的表达形式" class="md-header-anchor"></a><span>二 成交量的表达形式</span></h5><p><span>1、成交股数（VOL）。就是我们通常讲的成交量（手），它非常适合观察个股的放量和缩量情况，但很难判断成交活跃程度（与流通盘大小有关）和主力进出情况。</span></p><p><span>２、成交金额（AMO）。成交金额直接反映参与市场资金量的多少，常用于大盘的分析，它能够避免市场中各种股票因价格高低不同而造成的干扰，从而准确判断大盘强弱，也可以根据大盘成交额的情况来判断个股是强于大盘还是弱于大盘。</span></p><p><span>3、换手率（HSS）。就是每日的成交总量除以流通股本。它可以跟踪个股的活跃程度。一般日换手率低于3%为交易清淡，3%—7%为交易比较活跃，大于7%为很活跃。</span></p><p>&nbsp;</p><h5><a name="三-成交量变化的表现形式" class="md-header-anchor"></a><span>三 成交量变化的表现形式</span></h5><p><span>1、持续缩量（温和缩量）。一般当日成交量低于前一日成交量的10%以上为缩量。一种情况是看淡后市，卖出的人多买进的人少导致缩量，多发生在洗盘初期（主力惜售所致）、下跌初期（恐慌杀跌所致）、上涨末期（买气不足所致）。另一种是看好后市，买进的人多卖出的人少导致缩量。多发生在下跌中后期（做空动力衰竭所致）、加速上涨期（看多锁仓所致）。</span>
+<span>举例：旭飞投资000526  09.6.5日—7.15日</span></p><p><span>2、周期性缩量。一种是指股价阶段性创新高而成交量却比前期萎缩，导致量价背离，说明买气越来越不足，随时有变盘的可能。另一种是指股价阶段性不断创新低而每次反弹成交量都出现萎缩，说明市场做多动能不足，后市仍不容乐观。</span>
+<span>举例：华东电脑600850   10.1.19日—4.27日</span></p><p><span>3、地量。地量是缩量的极端表现形式。是指股价在一段时间内交易极为清淡。一般发生在熊市末期的主力吸筹阶段和中期回调的二次吸筹阶段。</span>
+<span>举例：双钱股份600623   09.8.12日之前</span></p><p><span>4、温和放量。是指成交量成阶梯式放大10%—15%左右，一般发生在市场低迷之后的突破压力位启动阶段或洗盘之后突破压力位的拉升初期。温和放量是放量上涨中最安全最稳定的上涨模式。</span>
+<span>举例：德豪润达002005   09.2.2日—4日</span></p><p><span>5、周期性放量。是指股价阶段性不断创新高而每次阶段性创新高伴随着成交量不断放大的情况，说明市场做多欲望强烈，后市仍将看好。</span>
+<span>举例：西部资源60013909.2.2日—09.9.8日</span></p><p><span>6、巨量。是指当日创造出相当于近期或过去相当一段时间以来好几倍的巨大的成交量。一般巨量出现在低位说明该股接下来不久会出现启动趋势；如果出现在高位不管是阴量还是阳量都有出货嫌疑。</span>
+<span>举例：烟台冰轮00081109.10.20日</span></p><p><span>7、堆量。就是连续好今天出现巨量的情况，其成交量形态如一个山堆。低位堆量多发生在有重大利好或主力抢筹阶段，预示未来会有大行情，高位堆量主要是主力运用对倒出货所致，应高度警惕。</span>
+<span>举例：银河科技00080609.2.6日—2.16日</span></p><p><span>8、无量。是指一开盘及封涨停或跌停的情况。说明多空双方意见非常一致。就是我们经常说的无量涨停和无量跌停。</span></p><p>&nbsp;</p><h4><a name="量价关系" class="md-header-anchor"></a><span>量价关系</span></h4><p><span>序幕：市场趋势最基本的元素是成交量和成交价，股票的历史就是成交量与成交价的历史，通过分析量价关系可以揭示市场的内在本质，可以预测市场的未来趋势。一般而言，多空双方分歧越大，反向认同程度越大，成交量递增，趋势波动越大，原有的趋势行情延续的可能性就越大；相反，多空双方分歧越小，反向认同程度越小，成交量萎缩，趋势波动减小，原有的趋势行情随时有反向改变的可能性。</span></p><h5><a name="一-量价关系的主要表现" class="md-header-anchor"></a><span>一 量价关系的主要表现</span></h5><p><span>1、股价低位启动，股价随成交量递增而上涨，是市场上涨行情的正常特征，这种价涨量增的关系，说明股价将继续上涨，大部分投资者认同该股的投资价值。此时为持有信号。</span>
+<span>举例：芜湖港60057509.4.15日—8.24日</span></p><p><span>2、股价经过阶段性回调整理之后，再一次上涨突破上一波新高，若股价创新高而成交量整体水平却没有创新高，则此波上涨的趋势并不稳定，一般为假突破，甚至是趋势反转的潜在信号。此时为卖出信号</span>
+<span>举例：深天健00009010.4.2日</span></p><p><span>3、在上升趋势中，股价不断上涨，而成交量却逐渐萎缩，说明上涨动力不足，趋势随时有可能反转。如果主力低位筹码高度锁仓就另当别论。此时为卖出信号。</span>
+<span>举例：悦达投资60085010.4.7日—12日</span>
+<span>德豪润达00200509.3.5日—5.8日</span></p><p><span>4、股价先缓步放量推升，如果有一天或连续几天突然放巨量快速上涨，（回光返照，对倒诱多出货）接下来是成交量大幅萎缩，同时股价急速下跌，这种现象表明该股涨势已到末期，上升乏力，走势衰竭。若前期涨幅很大为反转信号，若前期涨幅不大为洗盘信号。此时都应为卖出信号。</span>
+<span>举例：联合化工00221709.11.16日—12.2日</span></p><p><span>5、股价下跌，向下跌破筹码密集区、箱体或形态趋势线，同时伴随着放大量，说明多头无力支撑，空头占上风，此时为卖出止损信号。</span>
+<span>举例：荣安地产00051710.4.14日</span></p><p><span>6、股价经过长期下跌，形成谷底，此时股价开始上涨，而成交量并没有明显放大，说明上涨无力，股价还会再一下探至低点附近，若下探途中股价下跌而成交量却萎缩，说明杀跌动力衰竭，是确认未来反转上涨的信号。若再次放量上涨，此时为买入信号。</span>
+<span>举例：中泰化学00209208.11.12日——12.1日</span></p><p><span>7、股价经过持续一段时间缩量下跌，之后再一次恐慌性大幅下跌，同时伴随着放量，这是主力趁大跌建仓所为，表明空头市场即将结束，通常为最后一跌，此后一旦止跌回升即为买入信号。</span>
+<span>举例：潍柴动力00033808.10.23日—10.29日</span></p><p><span>8、股价上涨一波，随后缩量下跌，然后以地量长时间盘整，当再一次放量上涨时为买入信号。</span>
+<span>举例：中航三鑫00216309.2.27日—3.27日</span></p><p>&nbsp;</p><h5><a name="二-量价关系的类型" class="md-header-anchor"></a><span>二 量价关系的类型</span></h5><p><span>分为两大类。一类是常见的类型，即低量低价、量增价平、量增价涨、量缩价涨、量增价跌和量缩价跌等六种；</span></p><p><span>另一类是比较特殊的类型，即地量地价、天量天价、无量空涨、无量阴跌、底部放量和顶部对倒等六种。 </span></p><p><span>1、低量低价 </span></p><p><span>低量低价主要是指个股（或大盘）成交量非常稀少的同时、个股股价也非常低的一种量价配合现象。低量低价一般只会出现在股票长期底部盘整的阶段。 </span></p><p><span>当股价从高位一路下跌后，随着成交量的明显减少，股价在某一点位附近止跌企稳，并且在这一点位上下，进行长时间的低位横盘整理。经过数次反复筑底以后，股价最低点也日渐明朗，同时，由于量能的逐渐萎缩至近期最低值，从而使股票的走势出现低量低价的现象。 </span></p><p><span>低量低价的出现，只是说明股价阶段性底部形成的可能性大大增强，而不能作为买入股票的依据。投资者还应在研究该股基本面是否良好、是否具有投资价值等情况后，才能做出投资决策。 </span></p><p><span>2、量增价平 </span></p><p><span>量增价平主要是指个股（或大盘）在成交量增加的情况下、而个股的股价却几乎维持在一定价位水平上下波动的一种量价配合现象。量增价平既可以出现在上升行情的各个阶段，也可以出现在下跌行情的各个阶段之中。同时，它既可以作为卖出股票的信号，也可以作为买入股票的信号。区别买卖信号的主要特征，是要判断“量增价平”中的“价”是高价还是低价。 </span></p><p><span>如果股价在经过一段时间比较大的涨幅后、处在相对高价位区时，成交量仍在增加，而股价却没能继续上扬，呈现出高位量增价平的现象，这种股价高位放量滞涨的走势，表明市场主力在维持股价不变的情况下，可能在悄悄地出货。因此，股价高位的量增价平是一种顶部反转的征兆，一旦接下来股价掉头向下运行，则意味着股价顶部已经形成，投资者应注意股价的高位风险。 </span></p><p><span>如果股价在经过一段比较长时间的下跌后、处在低价位区时，成交量开始持续放出，而股价却没有同步上扬，呈现出低位量增价平的现象，这种股价低位放量滞涨的走势，可能预示着有新的主力资金在打压建仓。一旦接下来股价在成交量的有效配合下掉头向上，则表明股价的底部已经形成，投资者应密切关注该股。 </span></p><p><span>3、量增价涨 </span></p><p><span>量增价增主要是指个股（或大盘）在成交量增加的同时、而个股的股价也同步上涨的一种量价配合现象。量增价涨只出现在上升行情中，而且大部分是出现在上升行情的初期，也有小部分是出现在上升行情的中途。 </span></p><p><span>在经过前期一轮较长时间的下跌和底部盘整后，市场中逐渐出现诸多利好因素，这些利好因素增强了市场预期向好的心理、刺激了股市的需求，市场交换逐渐活跃起来。随着成交量的放大和股价的同步上升，投资者购买股票短期内就可获得利润，赚钱的示范效应激起了更多投资者的投资意愿。 </span></p><p><span>随着成交量的逐渐放大，股价也开始缓慢向上攀升，股价走势呈现量增价增的态势，这种量价之间的良好配合，对未来股价的进一步上扬，形成了真实的实质性支撑。 </span></p><p><span>4、量缩价涨 </span></p><p><span>量缩价涨主要是指个股（或大盘）在成交量减少的情况下、个股的股价却反而上涨的一种量价配合现象。量缩价涨多出现在上升行情的末期，有一小部分也会出现在下降行情中期的反弹过程中。不过，量缩价涨的现象在上升行情和下降行情中的研判是不一样的。 </span></p><p><span>在持续的上升行情中，适度的量缩价涨表明主力控盘程度比较高，维持股价上升的实力较强，大量的流通筹码被主力锁定。但量缩价涨毕竟所显示的是一种量价背离的趋势，因此，在随后的上升过程中出现成交量再次放大的情况，则可能意味着主力可能在高位出货。 </span></p><p><span>在持续的下降行情中，有时也会出现量缩价涨的反弹走势。当股价经过短期内的大幅度下跌后，由于跌幅过猛，主力没能全部出货，因此，他们会抓住大部分投资者不忍轻易割肉的心理，用少量资金再次将股价拉高，造成量缩价涨的假象，从而利用这种反弹走势达到出货的目的。 </span>
+<span>总之，对于量缩价涨的行情，投资者应区别对待，一般以持股或持币观望为主。 </span></p><p><span>5、量增价跌 </span></p><p><span>量增价跌主要是指个股（或大盘）在成交量增加的情况下、个股的股价却反而下跌的一种量价配合现象。量增价跌现象大部分是出现在下跌行情的初期，也有小部分是出现在上升行情的初期。不过，量增价跌的现象在上升行情和下降行情中的研判也是不一样的。 </span></p><p><span>在下跌行情的初期，股价经过一段比较大的涨幅后，市场上的获利筹码越来越多，一些投资者纷纷抛出股票，致使股价开始下跌。同时，也有一些投资者对股价的走高仍抱有预期，在股价开始下跌时，还在买入股票，多空双方对股价看法的分歧，是造成股价高位量增价跌的主要原因。不过，这种高位量增价跌的现象持续时间一般不会很长，一旦股价向下跌破市场重要的支撑位、股价的下降趋势开始形成后，量增价跌的现象将逐渐消失，这种高位量增价跌现象是卖出信号。 </span></p><p><span>在上升行情初期，有的股票也会出现量增价跌现象。当股价经过一段比较长时间的下跌和底部较长时间盘整后，主力为了获取更多的低位筹码，采取边打压股价边吸货的手段，造成股价走势出现量增价跌现象，但这种现象也会随着买盘的逐渐增多、成交量的同步上扬而消失，这种量增价跌现象是底部买入信号。 </span></p><p><span>6、量缩价跌 </span></p><p><span>量缩价跌主要是指个股（或大盘）在成交量减少的同时、个股的股价也同步下跌的一种量价配合现象。量缩价跌现象既可以出现在下跌行情的中期，也可能出现在上升行情的中期，但它们的研判过程和结果是不一样。 </span></p><p><span>在上升行情中，当股价上升到一定高度时，市场成交量开始减少，股价也随之小幅下跌，呈现出一种量缩价跌现象，而这种量缩价跌是对前期上升行情的一个主动调整过程，“价跌”是股价主动整理的需求，是为了清洗市场浮筹和修正较高的技术指标，而“量缩”则表明投资者有很强的持筹信心和惜售心理。当股价完成整理过程后，又会重新上升。 </span></p><p><span>在下跌行情中，当股价开始从高位下跌后，由于市场预期向坏，一些获利投资者纷纷出逃，而大多数投资者选择持币观望，市场承接乏力，因而，造成股价下跌、成交萎缩的量缩价跌现象。这种量缩价跌现象的出现，预示着股价仍将继续下跌。 </span></p><p><span>上升行情中的量缩价跌，表明市场充满惜售心理，是市场的主动回调整理，因而，投资者可以持股待涨或逢低介入。不过，上升行情中价跌的幅度不能过大，否则可能就是主力不计成本出货的征兆。 </span></p><p><span>下跌行情中的量缩价跌，表明投资者在出货以后不再做“空头回补”，股价还将维持下跌方向，因而，投资者应以持币观望为主。</span></p><p>&nbsp;</p><h4><a name="主力控盘各阶段量价分析" class="md-header-anchor"></a><span>主力控盘各阶段量价分析</span></h4><p><span>1、吸筹量价分析。</span></p><p><span>2、启动量价分析。</span></p><p><span>3、洗盘量价分析。</span></p><p><span>4、拉升量价分析。</span></p><p><span>5、出货量价分析。</span></p><p><span>6、试盘量价分析。</span></p><h5><a name="一-吸筹量价分析" class="md-header-anchor"></a><span>一 吸筹量价分析</span></h5><h6><a name="1-下跌卧底吸筹量价分析" class="md-header-anchor"></a><span>1 下跌卧底吸筹量价分析</span></h6><p><span>1、股价经过长时间缩量下跌，通过一段时间横盘后再一次放量下跌，说明此时有主力资金参与，该股离底部不会太远了，是即将止跌象征。</span></p><p><span>2、若此后股价在底部缩量盘整，说明主力资金悄然缓慢介入。导致股价下跌因有资金承接跌不多，上涨因不具备启动条件无大量跟风盘也涨不多。</span></p><p><span>3、通过长时间横盘且交易清淡使大部分套牢筹码无法忍受而割肉出局。</span></p><p><span>4、这种吸筹模式就是我们通常所说的挖坑行情。</span>
+<span>举例：凯迪电力0009392008.8.22日—10.6日</span></p><h6><a name="2-震荡吸筹量价分析" class="md-header-anchor"></a><span>2 震荡吸筹量价分析</span></h6><p><span>1、股价经过长期缩量下跌，突然放量上涨，但涨幅不大（不超过20%）后有回调。</span></p><p><span>2、回调时不创新低，且缩量下跌，说明杀跌动力不大，有新资金介入承接。</span></p><p><span>3、如此反复震荡形成双底或多重底的形态，每次反弹的成交量都比不上前一次的成交量，说明做多欲望不够强烈，且每一次回调的成交量也比前一次缩小。说明杀跌动力越来越弱。</span></p><p><span>4、这种模式会使套牢筹码经不住反复恐慌或方向不明而割肉出局。</span>
+<span>举例：卧龙地产60017310.5.5日—5.18日</span></p><h6><a name="3-拉升吸筹量价分析" class="md-header-anchor"></a><span>3 拉升吸筹量价分析</span></h6><p><span>1、股价经过长期缩量下跌，由于某种利好出现，突然持续放量上涨，涨幅超过20%，说明有资金大量参与。看好未来行情。</span></p><p><span>2、拉升吸筹一般经过一个缩量横盘整理的过程之后还有再一次拉升。</span></p><p><span>3、拉升吸筹的换手率一般都比较大，超过7%。</span>
+<span>举例：福星股份00092610.5.18日—5.24日</span></p><p>&nbsp;</p><h5><a name="二-启动量价分析" class="md-header-anchor"></a><span>二 启动量价分析</span></h5><h6><a name="1-温和放量启动" class="md-header-anchor"></a><span>1 温和放量启动</span></h6><p><span>股价经过长期缩量下跌，并且在底部缩量盘整有明显的止跌企稳迹象，空头能量经过了充分的消耗，若此时缓步放量上涨，说明多空平衡被打破，多头占上风，此时可分批介入建仓。此类形态以圆弧底为最佳</span>
+<span>举例：路翔股份00219208.11.5日</span></p><h6><a name="2-突发放量启动" class="md-header-anchor"></a><span>2 突发放量启动</span></h6><p><span>股价经过长时间下跌后，经过底部缩量盘整，有企稳迹象，突然有一天放大量、拉大阳，说明主力做多意愿强烈，接下来几天一般会缩量调整几天，在回调时幅度一般不会跌破第一根大阳线，如果回调幅度不超过第一根大阳线的一半更理想。此时可逢低分批建仓。</span></p><p><span>举例：重庆啤酒60013208.10.15日</span></p><h6><a name="3-初升缩量后启动" class="md-header-anchor"></a><span>3 初升缩量后启动</span></h6><p><span>股价经过长期下跌后，在底部极度缩量整理，然后缓步放量小碎步上涨，涨幅不大，接下来缩量小平台整理，当再次放量突破小平台时为最佳买入时机。</span>
+<span>举例：罗平锌电00211408.11.7日——11.14日</span></p><p>&nbsp;</p><h5><a name="三-洗盘量价分析" class="md-header-anchor"></a><span>三 洗盘量价分析</span></h5><h6><a name="1-窄幅震荡洗盘量价分析" class="md-header-anchor"></a><span>1 窄幅震荡洗盘量价分析</span></h6><p><span>股价经过一段上涨之后，主力一般都要经过洗盘，一方面要清洗下方的获利盘，另一方面要清洗上方的套牢盘，以提高散户成本，调整自身的仓位，减轻后期拉升的目。有一句广告词叫洗洗更健康！</span></p><p><span>窄幅震荡洗盘一般是强势股的特征，其底部吸筹比较充分，控盘程度很高，在洗盘期间主力惜售并没有抛售底仓，只是散户之间在进行换手，所以上下振幅不大，一般在10%左右，成交量与启动时比较大幅度缩量，当缩量到了极限再次放量时即为买入时机。</span></p><p><span>举例：贵研铂业60045909.1.19日——2.4日</span></p><h6><a name="2-宽幅震荡洗盘量价分析" class="md-header-anchor"></a><span>2 宽幅震荡洗盘量价分析</span></h6><p><span>宽幅震荡洗盘一般是主力吸筹时控盘程度不高，资金实力不雄厚的表现，正因为如此，在启动拉升一段时间后，一方面主力自身需要高抛回笼一部分资金作为后期拉升使用，另一方会遇到大量散户获利盘的抛压回吐，从而导致上下震荡较大，一般在15%左右，其成交量表现为下跌缩量，上涨放量，但缩量时并不是特别厉害，放量是也不会特别明显。只有当再次成功突破震荡平台并且企稳时才能安全介入。</span>
+<span>举例:江南化工002226 08.12.11日——09.1.9日</span></p><h6><a name="3-打压洗盘量价分析" class="md-header-anchor"></a><span>3 打压洗盘量价分析</span></h6><p><span>打压洗盘一般为长线主力所为，其底仓也不轻易出局，拉升一段，打压一段，打压不创新低，其打压幅度一般在10日均线附近，不超过20日均线，拉升时都创新高，很少暴涨暴跌，慢悠悠的往上涨，打压的目的是分批清洗获利盘，分批提高散户成本，让散户和自己共同持股，达到持续稳定上涨的目的，所以其打压是缩量，缩量不大，上涨是放量，放量也不大。</span>
+<span>举例：联化科技002250 08.11.7——09.5.7日</span></p><p>&nbsp;</p><h5><a name="四-拉升量价分析" class="md-header-anchor"></a><span>四 拉升量价分析</span></h5><h6><a name="1-堆量快速拉升模式" class="md-header-anchor"></a><span>1 堆量快速拉升模式</span></h6><p><span>主力在低位一旦吸筹到位，会采取堆量快速拉升模式，这种拉升模式前期主力吸筹非常充分，高位套牢盘几乎全部割肉，底部吸筹振幅不大，底部筹码高度密集，底部形态以头肩底和潜伏底居多，头肩底比潜伏底更强势一些，并且有足够的潜在上涨空间，在拉升过程中，拉大阳伴随着大成交量，这种成交量主要是由于主力对倒制造主力实力雄厚、人气活跃的气氛、大量吸引场外跟风盘所致，由于成交量很大，每一天都会出现新的密集峰，散户不断换手，散户成本越来越高，换手越大，密集峰越多，支撑性越好，上涨的持续性也越好。</span>
+<span>举例：美都控股6001752010年7月27日—8月5日</span></p><h6><a name="2-缩量快速拉升模式" class="md-header-anchor"></a><span>2 缩量快速拉升模式</span></h6><p><span>这种主力在低位一旦吸纳足够的筹码、套牢盘基本割肉完毕，在某种利好因素的刺激下，会采取快速拉升的模式，不给场外资金以任何买入的机会，迫使场外资金在高位高价追高买入，这样可以节约主力拉升成本，只要用大单封死涨停即可，但没有给低位获利散户卖出的机会，一旦不能继续涨停或封不住涨停，大量的获利散户就会蜂拥而出，所以这样的股票一般持续性会差，主力要经过洗盘换手之后才能再次拉升，这样的股票我们不要盲目去追，等洗盘完毕再次放量拉升时买入</span></p><h6><a name="3-高成交量震荡推升模式" class="md-header-anchor"></a><span>3 高成交量震荡推升模式</span></h6><p><span>这种主力有强烈的做多欲望，但资金实力不是非常雄厚或吸筹不是很充分、清洗套牢盘不是很彻底。在拉升过程中会遇到一定的阻力，主力只能用一部分资金采取高抛低吸的方式震荡推升，一方面维持股价的稳定性，吸引场外资金，另一方面迫使散户频繁换手，不断提高散户成本。所以主力和散户频繁操作导致高成交量，下跌时一般为缩量，其稳定性也不错，最终达到主力和散户共同缓慢推高股价的目的。这种股票只有耐心的人才能获利，否则很容易被震出。</span></p><h6><a name="4-低量缓步拉升模式" class="md-header-anchor"></a><span>4 低量缓步拉升模式</span></h6><p><span>这样的主力幕后指挥者性情温和，操作比较保守，耐心很好，怕担风险，并且有长期做多欲望，所以每天只拿少量的资金买卖维持股价的缓慢推升，散户跟风欲望也不强烈，成交量也不大，但其股价稳定性很好，属于慢牛性质，但长时间持有利润也很可观。</span></p><p>&nbsp;</p><h5><a name="五-出货量价分析" class="md-header-anchor"></a><span>五 出货量价分析</span></h5><h6><a name="1-快速拉升后横盘整理出货模式" class="md-header-anchor"></a><span>1 快速拉升后横盘整理出货模式</span></h6><p><span>举例：罗顿发展600209美都控股600175中国铝业601600</span></p><p><span>主力通过快速拉升，当到达目标位后，会采取高位横盘整理的方式出货。有的主力会放量横盘整理，以高换手率吸引场外资金参与快速出货；有的主力会缩量横盘整理，以低换手率使场外资金误认为洗盘参与缓慢出货。横盘整理出货模式一般都不创新高，即使创新高也是一天的诱多行情。</span></p><h6><a name="2-快速拉升后放量打压出货模式" class="md-header-anchor"></a><span> 2 快速拉升后放量打压出货模式</span></h6><p><span>主力通过快速拉升冲刺后，采取高换手率急速放量打压的出货模式，一般会高开高走，然后冲高回落，剧烈震荡来吸引场外资金，盘中制造交易活跃的假象，成交量急剧放大，一旦主力底仓出货基本完毕，就会加速一路下跌，不给高位散户任何出逃的机会。</span></p><h6><a name="3-快速拉升后缩量推升出货模" class="md-header-anchor"></a><span>3 快速拉升后缩量推升出货模</span></h6><p><span>主力经过快速拉升之后，主力并没有明显出货迹象，而是采取缩量震荡推升的模式缓慢出货，一方面通过挂单技巧制造买单积极继续做多的气氛，不断吸引场外资金，另一方面主力缓慢推高出货，成交量明显萎缩，说明主力做多欲望不够强烈，一旦出货差不多了，主力会急速打压，不给散户任何卖出机会。</span></p><h6><a name="4-快速拉升后放量推升出货模" class="md-header-anchor"></a><span>4 快速拉升后放量推升出货模</span></h6><p><span>主力通过快速缩量拉升后，采取高换手率高成交量，不断推高股价，给场外资金以强烈做多的欲望，主力在频繁混乱的换手中趁机出货，当出货差不多了，就会不计后果的抛出最后存货，导致股价一路下跌。</span></p><p>&nbsp;</p><h5><a name="六-试盘量价分析" class="md-header-anchor"></a><span>六 试盘量价分析</span></h5><h6><a name="1-启动试盘后横盘整理模式" class="md-header-anchor"></a><span>1 启动试盘后横盘整理模式</span></h6><p><span>启动试盘是主力启动初期用来试探市场动向的一个基本动作，主力启动后如果大盘趋势好、场内筹码锁定良好或场外资金追捧强烈，主力就会采取连续拉升的模式。主力启动后如果大盘不配合、场内筹码抛盘过大、或场外资金跟风不足，说明主力启动不成功，主力启动不成功的标志是启动时的成交量特别大，接下来成交量和股价上涨也都不持续。这样主力不得不采取短暂整理（一般不超过6个交易日）的过程，整理的目的是迫使一部分获利盘出局，吸引一部分场外资金逢低买入，提高散户成本，减轻后期拉升压力，还要调整自己的仓位及资金为拉升做准备。这种整理和平常的洗盘略有区别，因为拉升幅度不大所有不会洗很长时间。横盘整理的特征就是上下振幅非常小，一般在5%的范围内，并且缩量非常明显，一旦突然放量即为再次启动。</span></p><h6><a name="2-启动试盘后打压整理模式" class="md-header-anchor"></a><span>2 启动试盘后打压整理模式</span></h6><p><span>打压整理的特征是上下振幅稍大，但一般不超过10%，成交量依次温和缩量非常明显，一旦温和放量即为再次启动。</span></p></div>
+</body>
+</html>
