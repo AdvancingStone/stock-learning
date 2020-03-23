@@ -1,0 +1,519 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>11.主升浪战法</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; overflow-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none 0s ease 0s; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="mermaid"] svg, [lang="flow"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+
+</style>
+</head>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><p><span>Q：什么叫做主升浪？</span>
+<span>A：主力经过长期洗盘之后开始拉升股票，短期内使股价暴涨。</span></p><p><span>Q：主升浪有什么特点？</span>
+<span>A：时间短，见效快</span></p><p>&nbsp;</p><p><span>Content</span></p><p><a href='#股价决定一切'><span>1.股价决定一切</span></a></p><p><a href='#大盘所处时期的把握-大处着眼'><span>2.大盘所处时期的把握 大处着眼</span></a></p><p><a href='#买入时机的把握-小处着手'><span>3.买入时机的把握 小处着手</span></a></p><p><a href='#最佳买入的时机-中心阳线和突破阳线'><span>4.最佳买入的时机 中心阳线和突破阳线</span></a></p><p><a href='#卖出的几种时机'><span>5.卖出的几种时机</span></a></p><p>&nbsp;</p><h4><a name="股价决定一切" class="md-header-anchor"></a><span>股价决定一切</span></h4><h5><a name="股价代表的趋势" class="md-header-anchor"></a><span>股价代表的趋势</span></h5><p><span>股价代表了上市公司在市场的一个公允的价格，这个价格围绕其内在的价值波段。同时受到市场的供给和需求的影响。所以我们认为股价就如同体温计衡量人的身体所处的状态一样。</span></p><p><span>当大家进入股市的时候都希望涨到一个物美价廉的个股。但是我们认为市场没有物美价廉的股票。</span></p><p><span>大部分投资人都倾向于买进低价格的股票。他们认为，用同样的钱与其买 50 股较昂贵的股票，不如买 100 股或 1000 股较便宜的股票。甚至在思路上形成买的股票数量挣钱越多的思路。对此我们认为你挣钱的比例取决于你的资金量×你的收益率，而不是你的股票数量。可惜的是市场 80％的投资者很难想明白这个问题。 事实上，你应该购买价格较高，公司营运状况较佳的股票。这也就是笔者一直提到的――股价决定一切。我们可以试想在一波暴跌的行情中绝大多数个股的下跌幅度达到 30％－50％。可是为什么这些股票没有下跌呢？我们认为站在资金的供给和需求的角度。至少说明这个股票供给和需求是平衡的。没有出现大量的抛售行为，或者说部分的抛售被更看好该公司的资金买走了。这是我们正确理解股价的一种方法。在市场中经常有朋友提到某某股票主力被套了，是个好的投资机会。笔者认为如果一个较大的资金集团自己都出现被套的情况，说明他的投资研发能力和操作能力是非常有限的，这样的机构，这个的个股值得买入吗？坚决反对，连自己家的孩子都管不好的老师，你能把你的孩子交给他吗？</span></p><p><span>同样有很多朋友会提到低价股中间可以爆发出一些公司价值突然变化的公司。对此，笔者并不否定这种观点。绩差公司中间确实会因为资产注入，业绩突然增加等因素导致部分的企业乌鸡变凤凰。但是我们需要注意的是这类公司的数量。更主要的是对于普通投资者而言这种价值发现的过程太困难。我们还是耐心等待机构发掘之后，股价出现上扬的时候我们再参与更好。举个例子。2004年底－2005 年底的时候，熊市已经横行，牛市正在悄悄等待到来的时候。部分的高成长个股选择了逐步见底的过程。如当时的宝钛股份（600456）。部分的机构展开了逐步的吸纳行为，如果您果断参与机构的建仓的话，一年的振荡期是您需要忍受的。预期那样对于我们普通投资而言您为什么不去参与他的拉升期。您多付出的 1－2 元钱，让您少白等一年，更大程度上利用您的资金</span></p><p><span>所以笔者的一个重要观点 参与拉升不参与建仓 ，不要妄想比机构更早的价值发现。</span></p><p>&nbsp;</p><h5><a name="创新高意味着量变转化为质变" class="md-header-anchor"></a><span>创新高意味着量变转化为质变</span></h5><p><span>股市中所有的投资者都希望自己买的股票价格又便宜涨的又快。对此我们需要提醒大家股市一个另人吃惊的大悖论。</span></p><p><span>看起来股价过高或者风险过大的股票通常还有价格上涨的空间，而看起来估计较低的股票价格还有继续下降的风险。</span></p><p><span>我们来看一些股市中我们需要的情况，寻找一下这些个股能够让我们挣大钱的位置。</span></p><p><span>我们注意到 股价创出历史新高的时候是我们利润最高风险最小的阶段。新高和企业的主升浪来临同步了。</span></p><p><span>既然如此我们为什么不把我们的有限放在精力利润最高的这个位置呢？这些是我致力要做的寻找企业的技术面突破。股价的新高也代表了这个位置所有买入该股的投资者都获取了较大的利润，但是大家为什么都不愿意卖出呢？只能说明一点大家都看好这个企业的发展或者更俗一点认为这个股票价格应该继续上扬。</span></p><p><span>但是通过历史的调查发现。90％的投资者不愿意在这个位置买入个股，唯一的担心就是价格太高。对此笔者坚信强者恒强的观点。当我们寻找到企业增长的爆发</span></p><p><span>点和股价大涨的爆发点之后，您也就碰到您财富的爆发点。</span></p><p>&nbsp;</p><h4><a name="大盘所处时期的把握-大处着眼" class="md-header-anchor"></a><span>大盘所处时期的把握 大处着眼</span></h4><p><span>大盘的重要性——看准大盘是长期从股市里赚取稳定收益的关键。</span></p><h5><a name="1炒股炒的是概率的大小" class="md-header-anchor"></a><span>1、炒股炒的是概率的大小</span></h5><p><span>要学会从股市里长期的、稳定的赚取财富。首先，这里我们要明确的一点是：炒股炒的是概率的大小。因为股市不像自然科学，股市里面没有 100％的东西，这包括没有 100％的指标，没有 100％的必然上涨的股票等等。股市里存在的只有概率的大小。弄清楚这一点，对我们的投资理念会有很大的帮助。</span></p><p><span>这样，你就不能去追求天天抓一个涨停板之类的不现实的东西了，也不会相信一些人说的他在一年之内从 1 万炒到几十万的股神了。不要妄想从股市里获得百分之几百的暴利。因为在股市里，你有可能其中有一次机会获得的了暴利，这次也许是因为你运气好，也许是因为你有内部消息，不管是因为什么原因，你如果就这样认为你可以长期的稳定的在股市里获得暴利，这种情况是不可能会有的。</span></p><p><span>（1）炒股炒的是概率的大小。</span></p><p><span>（2）没有人能够从股市里长期的、稳定的赚取暴利，要学会从股市里长期的、稳定的赚取财富。</span></p><p><span>只有当你认识到这两点，你也就可以静下心来思考和学习真正的投资之道和真正的赚钱方法了。这些方法能够保证你每年从股市里获得 30％－50％的利润。如果你仔细算一算，你就会发现每年稳定的 30％收益率，会在 20 年左右给你带来巨大的财富。如果你现在的投资资金是 10 万，那么按照每年赚 30％，那么 20 年后你的资金将是 1900 万。</span></p><p><span>我相信，这是所谓的暴利机会无法带给你的财富。由此也可以看出，从股市里长期的、稳定的赚取财富的重要性。当你没有了暴富的想法之后，你可能在投资的生涯中走的更加的稳定。</span></p><p>&nbsp;</p><h5><a name="2对于抛开大盘炒个股的观点" class="md-header-anchor"></a><span>2、对于抛开大盘炒个股的观点。</span></h5><p><span>以前，有人曾经提出“抛开大盘炒个股”的思想，其主要的观点是轻大盘，着重个股的挑选。这个观点认为只要选好了个股，就能赚钱。这种理论听起来似乎有点道理，因为每天大盘至少都会有几只股票涨的好。但是如果我们仔细一想，就会发现这种理论在实践中实行起来很困难，不实用。</span></p><p><span>（1）从理论上来说——当日大盘走势与个股的关系。</span></p><p><span>这种理论的错误在于它把现实的残酷和理想的假设混淆在一起了。它的理想假设是，即使是在大盘下跌的时候，也能抓住一千多只股票里的几只上涨的股票，所以可以不看大盘炒股票；而其实在现实中，如果今天大盘在下跌，而只有 200 只股票上涨了，看起来好像赚钱的机会有 200 个，但是实际上你今天买入股票赚钱的成功率则是 200 除以 3000，等于 20％。因为这个成功率简直是太低了。所以，“抛开大盘炒个股”是非常不明智的。</span></p><p><span>（2）从历史走势看——大盘与个股的历史走势对比。</span></p><p><span>大多数个股的历史走势与大盘的历史走势都极为相似。这是因为，大盘对于每只股票的走势都有很强的影响力。</span></p><p><span>当然也有极少数强庄股，有自己的独立的走势，但这毕竟是少数股票。所以，看准了大盘，摸清楚了大盘的走势规律，大多数股票的走势图也就在意料之中了。</span></p><p><span>（3）从实践上来说——大盘的大顶带来的惨重教训和大盘的大底带来的可观收益。</span></p><p><span>特别是在大盘处于下跌趋势的时候，“抛开大盘炒个股”将导致灾难性的后果。事实胜于雄辩！在 2001 年 6 月份，大盘见了历史大顶，之后一路下跌，几乎所有的股票都下跌了 30％以上，这段时间可以说，只要买股票，就会被套牢。很多投资者平均亏损在 30％以上。这一堂生动的课也是给“抛开大盘炒个股”的这种理论的事实雄辩。</span></p><p><span>同样，在大盘见底的时候，即使随便买入一只股票，都可以给你可观的收益。例如，2005 年的这波大牛市。如果当时买入任何个股收益都是很稳定的。当然市场的总体牛熊的转化会有很多方面的原因。</span></p><p>&nbsp;</p><h5><a name="3看对大盘是解决稳定获利的第一个问题" class="md-header-anchor"></a><span>3、看对大盘，是解决稳定获利的第一个问题。</span></h5><p><span>从以上的分析，我们可以发现，只要看对了大盘，就能够帮助我们从股市里获得稳定的收益，并且避免大熊市带来的巨大损失。所以，炒股票的第一堂课，也是最重要的炒股技术，就是看对大盘。看对大盘是正确展开一切个股买卖的第一前提。包括我们提倡的基本面加技术面的突破方法。牛市中间可以给我们带来百分之几百的收益。但是到了熊市方法依旧有效，但是收益可能就会大打折扣。这也是很正常的，如同逆水行舟和顺水行舟的原则是一样的。</span></p><p>&nbsp;</p><h4><a name="买入时机的把握-小处着手" class="md-header-anchor"></a><span>买入时机的把握 小处着手</span></h4><h5><a name="a-自身定位个股在历史上处于的位置" class="md-header-anchor"></a><span>A 自身定位:个股在历史上处于的位置</span></h5><p><span>小时候有一个经典的故事叫做井底之蛙。通过他我认为我们在操作股票的时候一样需要保持一种从大到小看到问题的方法。如果您仅仅通过 5 分钟 K 线就可以逃掉历史大顶，打死我都不信。周期在我们分析个股的时候非常重要。很多朋友喜欢通过分时走势的强劲选择个股，随后在日线，周线，基本面为自己的买入找理由。这样的准确率一定会降低。如果我们能够通过周线日线找到相对有突破可能个股的话，我们再在分时上找一个买点的话，那个准确率更高？也许答案没有什么争议，后者的准确率高。</span></p><p><span>所以在我们去操作突破类个股的时候“大新高，大涨。小新高，小涨”</span>
+<span>当个股突破的是几年的历史新高的时候，他突破失败的概率就会明显的降低。因为为了这次历史性的突破，他已经等待好几年了。如我们给大家重点分析过的招商银行。他的新高是几年的新高，为此他等待了整整一个熊市。如果您做的仅仅是个分时上的突破，这样的获利目标就不要制定的太高。周期越短，失败的概率越高。</span>
+<span>大处着眼，小处入手。就代表了这种操作的理念。</span>
+<span>　　</span></p><h5><a name="b-风格确定--股票的股性是否值得我们操作" class="md-header-anchor"></a><span>B 风格确定:  股票的股性是否值得我们操作</span></h5><p><span>股票有自己的性格吗？笔者认为股票本身没有性格，但是操作股票的人有性格。反映到市场中就是个股的走势会出现很大的不同。难以想象一个性格急躁的基金经理和一个性格平和的基金经理操作的个股能够走势一样。同样在券商概念中我们发现与中信证券的走势一波三折不一样，吉林敖东和辽宁成大的走势则是非常系列。这背后是中信证券基金的数量较多，难以达到高度的协调上涨，毕竟和尚多了没水喝。大股东的频繁减持也导致了走势上的波段明显，走势上不够犀利。而同板块的敖东和成大属于南方基金系的重点持仓则走势非常强悍。（南方基金投资特点参照前面章节）</span></p><p><span>同样当我们面对突破的时候，最好选择走势犀利的个股。以方便我们的收益</span></p><p><span>短期最大化。优选历史平台突破成功率高的。</span>
+<span>　　</span></p><p><strong><span>突破之前的几种典型的形态</span></strong></p><p><span>A 杯状形态</span></p><p><span>B 平台整理</span></p><p><span>C 上升三角形</span></p><p><strong><span>强势个股的特征</span></strong></p><p><span>1.有一个振荡幅度相对较小的形态</span></p><p><span>2.出现一个明显的缩量过程</span></p><p><span>3.配合基本面的突发变化</span></p><p><span>4.有起爆阳线的出现</span></p><p><span>5.板块效应的出现（金融，煤炭）</span></p><p>&nbsp;</p><h4><a name="最佳买入的时机-中心阳线和突破阳线" class="md-header-anchor"></a><span>最佳买入的时机 中心阳线和突破阳线</span></h4><p><span>为什么要买入一直股票呢？可能很少朋友去思考这样的问题。买股票当然是为了赚钱，买入一定是他马上要涨了。相信很少愿意买入个股几个月才开始出现上涨，这是难以理解的。这样的话我们要做的就是买入之后就要出现上涨。如果你买入之后他没有上涨，不论是大盘的因素还是政策的因素，至少我们当初的判断出现了错误，所以我们一直寻找一个买入即可以大涨的买点。</span></p><p><span>创出历史新高就是这样一个高风险，高收益的买入方法。买对就是个股的主升浪，不但涨的速度快，涨的幅度也是最大的。套用一句行话，三年不开张，开张吃三年。当然买错的话，可能我们就买到了山顶上。所以严格的风险控制是必须的。明白了风险和之后我们就要选择这样一个买点。笔者在长期的积累中发现股价突破高往往是一个快速上升的主升浪开始。但是同时也发现有一个些个股的最佳买点会比突破历史点要早。在美国投资大师威廉.欧奈尔的文章中我也找到了这样的分析“正确底部形态的买入中心点未必是前波的最高点。很多买入中心点都要比前一次的高点底 5％－10％。大多数买入的中心点是杯柄区域的最高点，通常都低于整个形态真实的高点。”</span>
+<span>　　</span></p><p><span>寻找突破阳线变成为了我们的重点任务</span></p><p><span>对于基金重仓的股票，它们波段运行很少是旱地拔葱的井喷形态，更多的是有条不紊的按照趋势的正常的规律运行，在上升趋势中，每一个波段里，无非就是几根向上突破的阳线把上升趋势的空间打开，其中尤以第一根突破性的阳线最为重要，既然研究突破，就应该把精力在这跟有特殊意义的阳线上多放一些。</span></p><p><span>基本面突破和技术面的突破最后都要到这样一个买入的点位。我们等待的就是这样一个千钧一发的时候。我们认为优先选择两个买点吻合的这样一天，通过仔细的精挑细选将会极大的增加我们操作的胜率，抓到个股的起涨主升浪。</span></p><p><span>如果因为市场和个股的关系，大家也可以采用两个买点分两次买入的方法。总体上一定要仔细的鉴别，您的这一笔交易可能都是给您带来 30％主升浪的机会。不要盲目的出击。</span>
+<span>　　</span></p><h4><a name="卖出的几种时机" class="md-header-anchor"></a><span>卖出的几种时机</span></h4><p><span>在我们花费了大量的时间找到一个基本面和技术面双双突破的上市公司之后，我们果断的买入之后，新的问题就会出现。什么时候卖出呢？在我们的市场中有这样一个格言“会买的是徒弟，会卖的是师父”一个看似非常正确的格言。笔者也苦苦寻觅这样的师父，结果到目前没有发现一个完全可以解决卖出的操作方法和师父。原因只有一点，人性的贪婪使我们每次的交易都希望卖到最高点。每日的最高点，每周的最高点，每月的最高点。。。。结果是可以想象的，回顾我们自己的操作，瞻望大师们的操作。会卖的师父到底在那里？我认为归根结底在于你自己是否满足了。如果你认为一只股票买入的时候你认为这波突破 50％的收益就可以了，当达到你卖出就可以了。而这个时候希望涨更多是每个人本能的反映，但是无数次我们确因此错失了卖出的机会。很多朋友都有赚钱不愿意走，导致重套的情况。什么导致的呢？是神奇的卖出方法吗？不是！ 是人性本能的贪婪和恐惧，在这个资本市场上显得更加的明显。一句话“十全十美的卖出是没有的，计划的交易让自己成为市场的盈家”</span></p><p><span>抛开股神不谈，股市成功人士总是操作正确的吗，卖出总是精彩的吗？事实并非如此。市场主力也有被套的时候，巴菲特的年收益也不过 30％。在股票市场稳定获利的关键并非任何时候都是正确的，而在错误的时候让你的亏损额降到最低水平。</span>
+<span>　　</span></p><h5><a name="1止损位保持在-10" class="md-header-anchor"></a><span>1.止损位保持在 10%。</span></h5><p><span>首先通过上面的选股篇和我们的操作篇。我们选择的都是一些质地非常好处于高速增长的企业。首先我们可以回避掉连续跌停的暴跌。其次我们的止损设定。当我们在做个股的突破的.任何的个股都有风险。这个时候我们为了保全我们辛苦挣来的钱就必须为自己的操作设定一个止损点。我认为设定在 10%较为合理。股市中间一次的正常投资失败不会击跨任何一个人，但是一次重套可能让你长久的离开证券市场，让职业的投资者没有勇气再回到这个市场。这样的例子太多了，看看我们身边股龄在 10 年以上的人多吗？他们是不是特别的小心谨慎呢?既然市场如此疯狂，为什么这些数量为数不多的老兵不大胆操作呢？是他们晋升为将军了吗？不是！很多的都被市场所淘汰。</span></p><p><span>最重要的一点――做好止损，让财富稳定增值。</span></p><p><span>通过实践我们认为 10%的止损是一个比较合理的位置，这个指的是我们的买入位置。止损就如同保险一样，和战士上战场的钢盔一样，谁也不希望出问题，但是我们必须有最基本的保障。</span></p><p><span>这是我们讲卖出的时候首先提到的止损，当我们做错的时候。随后我们会有获利止损的方法讲解</span>
+<span>这个比例是个绝对的止损限额。当我们做突破失败的时候，你必须及时卖出，有朋友可能认为你只要不卖出，就不是真实的损失。其实这是一种自欺欺人的想法，因为在跌的时候你确实出现了亏损。既然我们希望买了一只个股就上涨，那我们买了就下跌，说明我们的判断或者市场的走向一定出现了变化，这种情况下我们做的就是卖出，因为我们的出发点错误了。另外一种我们挣钱了，是不是也必须做到到达买入点 10％卖出。这点笔者认为我们可以采用跟踪止损的方法。属于获利卖出的范畴，我们会在下面的方法中讲解跟踪止损和单根 k 线止损法。</span></p><p><span>　　</span></p><h5><a name="2发出卖点建议离场----神龙摆尾指标线" class="md-header-anchor"></a><span>2.发出卖点建议离场    神龙摆尾指标线</span></h5><p><span>大家手中都有我们的操盘软件。这样一个决策系统笔者的理解就是一个交易的系统，告诉我们的不是市场会怎么走，而是我们应该怎么做的一种方法。操盘线的卖点就是一个跟踪止损法的典范。对于我们操作的基金重仓股我们认为中线的卖点交给操盘线是问题不大。仔细的朋友会发现他的跟踪止损功能。</span></p><p>&nbsp;</p><h5><a name="3快速拉升收出连续长阳" class="md-header-anchor"></a><span>3.快速拉升收出连续长阳</span></h5><p><span>这是一种适合与基金重仓股的卖发之一。每波基金重仓股的见顶都是以快速拉升作为结束的。放量的长阳是机构出货的最佳实际。就像一个长跑运动员开始最后冲刺的时候一样。有些个股历史上就容易出现这种情况　　</span></p><p>&nbsp;</p><h5><a name="4单个-k-线止损法" class="md-header-anchor"></a><span>4.单个 K 线止损法</span></h5><p><span>对于止损的重要性我们前面已经讲过了。这里我们交流一下笔者使用的单根 K 线止损法。他是对于操盘线系统操作的一种优化。能够使我们相对较早的离场。前面我们在讲解买点的时候提到了中心阳线和突破阳线两个买入的位置。这里采用的单根 k 线止损法，就是以买点为准操作的。简单来说，既然我们确定那根中阳的 k 线是我们的最佳买点。那么如何我们判断错误，跌破那个买点的话，我们就没有必要等待操盘线的卖出信号。我们的止损以中心阳线或者突破阳线的开盘价作为止损点。及时结束我们的错误买入。</span></p><p><span>　　</span></p><p><span>总结：</span></p><p><span>1、只做主升浪，每年只在大盘好的情况下做股票。每年会有3-4次的机会。千万不要频繁操作。</span></p><p><span>2、不要心存幻想，想每天都抓涨停。</span></p><p><span>3、设定目标，，分仓操作，及时止损。出现卖点，及时止盈。</span></p><p><span>4、依据筹码战法，选择高控盘，低位，开始放量拉升，板块启动的股票。</span></p><p>&nbsp;</p><p><span>　　</span></p></div>
+</body>
+</html>
