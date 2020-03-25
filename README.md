@@ -1,6 +1,13 @@
 # stock-learning
 
-炒股知识学习
+<div align="center">
+    <a href="https://gitstar-ranking.com/repositories"> <img src="https://badgen.net/badge/Rank/20?icon=github&color=4ab8a1"></a>
+    <img src="https://badgen.net/badge/author/bluehonour/red" />
+    <img src="https://badgen.net/badge/赢了会所嫩模/输了下海干活/green" />
+    <img src="https://img.shields.io/badge/license-MIT-blue.svg" />
+</div>
+
+<br>
 
 1. [股票基础知识](./article/1.股票基础知识.md)
 
